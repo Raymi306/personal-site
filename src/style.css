@@ -1,10 +1,29 @@
+:root {
+	--gold-1: #796229;
+	--gold-2: #8c753a;
+	--gold-3: #aa904e;
+	--gold-4: #c6ad6a;
+	--gold-5: #edd496;
+	--gold-special-a: #ebcb4e;
+	--purple-1: #4a1b4f;
+	--purple-2: #57275c;
+	--purple-3: #6a346f;
+	--purple-4: #7c4782;
+	--purple-5: #96639b;
+	--green-1: #1e5930;
+	--green-2: #2b683d;
+	--green-3: #397e4e;
+	--green-4: #4f9363;
+	--green-5: #6faf82;
+	--green-special-a: #48e175;
+}
 @font-face {
 	font-family: "maze";
 	src:  url("assets/mazeletter-metropolis.woff2") format("woff2");
 }
 html, body {
-	color: #edd496;
-	background-color: #aa904e;
+	color: var(--gold-5);
+	background-color: var(--gold-3);
 	margin: 0;
 	padding: 0;
 	font-family: "lucida console", monospace;
@@ -15,26 +34,25 @@ html, body {
 }
 h1, h2, h3 {
 	font-weight: bold;
-	text-shadow: 0.05em 0.03em 0.01em #AA904E;
+	text-shadow: 0.05em 0.03em 0.01em var(--gold-3);
 }
 a {
 	text-decoration: none;
 }
 a:link {
-	color: #6faf82;
+	color: var(--green-5);
 }
 a:visited {
-	color: #4f9363;
+	color: var(--green-4);
 }
 a:hover {
-	text-decoration: double underline overline;
-	color: #48e175;
+	color: var(--green-special-a);
 }
 a:active {
 	color: lime;
 }
 .porple {
-	background-color: #4a1b4f;
+	background-color: var(--purple-1);
 	opacity: 0.77;
 }
 .maze {
@@ -47,8 +65,8 @@ a:active {
 	white-space: nowrap;
 	line-height: 1em;
 	z-index: -1;
-	color: #4f9363;
-	text-shadow: 1px 1px 0px #6faf82;
+	color: var(--green-4);
+	text-shadow: 1px 1px 0px var(--green-5);
 }
 .grid-wrapper {
 	height: 100%;
@@ -75,7 +93,7 @@ a:active {
 	grid-area: body;
 	position: relative;
 	text-align: center;
-	background-color: #1e5930;
+	background-color: var(--green-1);
 	z-index: -2;
 }
 .footer {
@@ -100,7 +118,7 @@ a:active {
 		padding-left: 1em;		
 	}
 	.aside ul {
-		list-style-image: linear-gradient(to left bottom, #EDD496, #4a1b4f);
+		list-style-image: linear-gradient(to left bottom, var(--gold-5), var(--purple--1));
 	}
 }
 @media (orientation: portrait) {
