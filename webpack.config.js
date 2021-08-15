@@ -11,13 +11,17 @@ module.exports = {
 			assets: path.resolve(__dirname, './assets'),
 		},
 	},
+	devServer: {
+		contentBase: './dist',
+		hot: true,
+	},
 	plugins : [
 		new HtmlWebpackPlugin({
 			template: './src/index.html',
 			minify: true,
 		}),
 		new MiniCssExtractPlugin({
-			filename: "[name].css",
+			filename: '[name].css',
 		}),
 	],
 	output: {

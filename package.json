@@ -5,11 +5,13 @@
     "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.2.0",
     "webpack": "^5.49.0",
-    "webpack-cli": "^4.7.2"
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
   },
   "private": true,
   "scripts": {
     "build": "webpack; gzip -k -9 dist/*",
+    "dev": "webpack serve",
     "deploy": "scp -P 57018 dist/* andrew@let-them.cyou:/srv/www/lt",
     "rsync": "rsync -rvz --progress --delete -e 'ssh -p 57018' ./dist/* andrew@let-them.cyou:/srv/www/lt"
   }
