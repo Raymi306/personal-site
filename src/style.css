@@ -1,0 +1,120 @@
+@font-face {
+	font-family: "maze";
+	src:  url("assets/mazeletter-metropolis.woff2") format("woff2");
+}
+html, body {
+	color: #edd496;
+	background-color: #aa904e;
+	margin: 0;
+	padding: 0;
+	font-family: "lucida console", monospace;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: -3;
+}
+h1, h2, h3 {
+	font-weight: bold;
+	text-shadow: 0.05em 0.03em 0.01em #AA904E;
+}
+.porple {
+	background-color: #4a1b4f;
+	opacity: 0.77;
+}
+.maze {
+	opacity: 0.5;
+	position: fixed;
+	display: block;
+	margin-top: -0.3em;
+	font-family: "maze", webdings;
+	overflow: clip;
+	white-space: nowrap;
+	line-height: 1em;
+	z-index: -1;
+	color: #4f9363;
+	text-shadow: 1px 1px 0px #6faf82;
+}
+.grid-wrapper {
+	height: 100%;
+	width: 100%;
+	display: grid;
+	position: relative;
+}
+.header {
+	grid-area: header;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.header h1 {
+	margin: 0.1em;
+	padding: 0;
+	font-size: 4em;
+}
+.aside {
+	grid-area: aside;
+	overflow-y: auto;
+}
+.body {
+	grid-area: body;
+	position: relative;
+	text-align: center;
+	background-color: #1e5930;
+	z-index: -2;
+}
+.footer {
+	grid-area: footer;
+	padding: 1em;
+}
+@media (orientation: landscape) {
+	.grid-wrapper {
+		grid-template-areas:
+			"header header header"
+			"aside  body   body"
+			"footer footer footer";
+		grid-template-columns: min-content auto;
+		grid-template-rows: minmax(min-content, max-content) minmax(auto, 90vh) minmax(max-content, auto);
+		grid-gap: 0.3em;
+	}
+	.aside {
+		margin-left: 0.3em;
+		padding-left: 1em;		
+	}
+	.aside ul {
+		list-style-image: linear-gradient(to left bottom, #EDD496, #4a1b4f);
+	}
+}
+@media (orientation: portrait) {
+  .grid-wrapper {
+		width: 100%;
+		display: grid;
+    grid-template-areas:
+      "header"
+			"aside"
+			"body"
+			"footer";
+		grid-template-rows: minmax(min-content, max-content) minmax(auto, max-content) minmax(10vw, auto) minmax(max-content, auto);
+		grid-gap: 0.3em;
+  }
+	.aside {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex-direction: column;
+		font-size: 3vw;
+		margin-inline: 2rem;
+		margin-top: 0.5rem;
+		margin-bottom: 0.5rem;
+		padding: 1rem;		
+	}
+	.aside ul {
+		padding: 0;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		list-style-type: none;
+	}
+	.footer {
+		margin-top: 0.5rem;
+	}
+}
