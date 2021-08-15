@@ -17,6 +17,22 @@ h1, h2, h3 {
 	font-weight: bold;
 	text-shadow: 0.05em 0.03em 0.01em #AA904E;
 }
+a {
+	text-decoration: none;
+}
+a:link {
+	color: #6faf82;
+}
+a:visited {
+	color: #4f9363;
+}
+a:hover {
+	text-decoration: double underline overline;
+	color: #48e175;
+}
+a:active {
+	color: lime;
+}
 .porple {
 	background-color: #4a1b4f;
 	opacity: 0.77;
@@ -64,14 +80,17 @@ h1, h2, h3 {
 }
 .footer {
 	grid-area: footer;
-	padding: 1em;
+	padding: 1.2em;
+	font-size: 0.8em;
+	display: flex;
+	justify-content: space-between;
 }
 @media (orientation: landscape) {
 	.grid-wrapper {
 		grid-template-areas:
-			"header header header"
-			"aside  body   body"
-			"footer footer footer";
+		"header header"
+		"aside  body"
+		"footer footer";
 		grid-template-columns: min-content auto;
 		grid-template-rows: minmax(min-content, max-content) minmax(auto, 90vh) minmax(max-content, auto);
 		grid-gap: 0.3em;
@@ -85,17 +104,17 @@ h1, h2, h3 {
 	}
 }
 @media (orientation: portrait) {
-  .grid-wrapper {
+	.grid-wrapper {
 		width: 100%;
 		display: grid;
-    grid-template-areas:
-      "header"
-			"aside"
-			"body"
-			"footer";
+		grid-template-areas:
+		"header"
+		"aside"
+		"body"
+		"footer";
 		grid-template-rows: minmax(min-content, max-content) minmax(auto, max-content) minmax(10vw, auto) minmax(max-content, auto);
 		grid-gap: 0.3em;
-  }
+	}
 	.aside {
 		display: flex;
 		justify-content: flex-start;
