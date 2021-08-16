@@ -1,50 +1,65 @@
 import './style.css';
 import 'assets/mazeletter-metropolis.woff2';
 
-function getRandomAsciiChar() {
-	const result = Math.floor(Math.random() * 93) + 33;
-	return String.fromCharCode(result);
+const dpr = window.devicePixelRatio;
+const w = Math.ceil(window.screen.width);
+const h = Math.ceil(window.screen.height);
+const screenMax = Math.max(w, h);
+const fontSize = 3;
+
+const maze = document.getElementById('maze');
+const canvas = document.createElement('canvas');
+canvas.style.width = w;
+canvas.style.height = h;
+const ctx = canvas.getContext('2d');
+ctx.scale(dpr, dpr);
+ctx.font = fontSize + 'em maze';
+
+maze.style.fontSize = fontSize + 'em';
+
+function getRandomAsciiChars(num) {
+	const buf = [];
+	for (let i = 0; i < num; i++) {
+		const code = Math.floor(Math.random() * 93) + 33;
+		const character = String.fromCharCode(code);
+		buf.push(character);
+	}
+	return buf;
 }
-function drawMazeRow(buf, width) {
-	for (let i = 0; i < width; i++) {
+function getRandomAsciiChar() {
+	const code = Math.floor(Math.random() * 93) + 33;
+	const character = String.fromCharCode(code);
+	return character;
+}
+function drawMazeRow(numCharGuess, maxScreenSize) {
+	const buf = getRandomAsciiChars(numCharGuess);
+	while (true) {
+		if (ctx.measureText(buf.join('')).width > maxScreenSize) {
+			break;
+		}
 		buf.push(getRandomAsciiChar());
+		numCharGuess += 1;
 	}
 	buf.push('\n');
+	return {
+		'sizeHint': numCharGuess,
+		'row': buf.join(''),
+	};
 }
-function drawMazeToBuf(buf, col_len, row_len) {
-	for (let i = 0; i < col_len; i++) {
-		drawMazeRow(buf, row_len);
+function drawMaze(screenMax) {
+	const buf = [];
+	let numCharGuess = 0;
+	let counter = 0;
+	while (true) {
+		const result = drawMazeRow(numCharGuess, screenMax);
+		const row = result.row;
+		numCharGuess = result.sizeHint;
+		buf.push(row);
+		const textMetric = ctx.measureText(buf.join(''));
+		counter++;
+		if (screenMax / (Math.abs(textMetric.actualBoundingBoxAscent) + Math.abs(textMetric.actualBoundingBoxDescent)) < counter) break;
 	}
+	return buf.join('');
 }
-function blit(buf, elem) {
-	elem.innerText = buf.join('')
-}
-function tweak(buf) {
-	const index = Math.floor(Math.random() * (buf.length - 1));
-	const peek = buf[index];
-	if (peek != '\n') {
-		buf[index] = getRandomAsciiChar();
-	}
-}
-function tweak_n_blit(buf, elem) {
-	tweak(buf);
-	window.requestAnimationFrame(() => blit(buf, elem));
-}
-
-const mazeContainer = document.getElementById('maze');
-const dpiScale = window.devicePixelRatio;
-const w = Math.ceil(window.screen.width * dpiScale);
-const h = Math.ceil(window.screen.height * dpiScale);
-const r_max = Math.max(w, h);
-const glyph_size = Math.ceil(0.0267 * r_max);
-const num_glyphs_in_col = Math.ceil(r_max / glyph_size * 2);
-const num_glyphs_in_row = Math.ceil(r_max / glyph_size * 2);
-mazeContainer.style.fontSize = glyph_size + 'px';
-
-console.log(dpiScale);
-console.log(num_glyphs_in_col, num_glyphs_in_row, glyph_size, w, h);
-
-const buf = [];
-drawMazeToBuf(buf, num_glyphs_in_col, num_glyphs_in_row);
-blit(buf, mazeContainer);
-setInterval(() => tweak_n_blit(buf, mazeContainer), 113);
+const mazeString = drawMaze(screenMax);
+maze.innerText = mazeString;
