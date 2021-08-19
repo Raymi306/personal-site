@@ -1,22 +1,6 @@
 import './style.css';
 import 'assets/mazeletter-metropolis.woff2';
 
-const dpr = window.devicePixelRatio;
-const w = Math.ceil(window.screen.width);
-const h = Math.ceil(window.screen.height);
-const screenMax = Math.max(w, h);
-const fontSize = 3;
-
-const maze = document.getElementById('maze');
-const canvas = document.createElement('canvas');
-canvas.style.width = w;
-canvas.style.height = h;
-const ctx = canvas.getContext('2d');
-ctx.scale(dpr, dpr);
-ctx.font = fontSize + 'em maze';
-
-maze.style.fontSize = fontSize + 'em';
-
 function getRandomAsciiChars(num) {
 	const buf = [];
 	for (let i = 0; i < num; i++) {
@@ -31,12 +15,9 @@ function getRandomAsciiChar() {
 	const character = String.fromCharCode(code);
 	return character;
 }
-function drawMazeRow(numCharGuess, maxScreenSize) {
+function getMazeRow(numCharGuess, screenMax, ctx) {
 	const buf = getRandomAsciiChars(numCharGuess);
-	while (true) {
-		if (ctx.measureText(buf.join('')).width > maxScreenSize) {
-			break;
-		}
+	while (ctx.measureText(buf.join('')).width < screenMax) {
 		buf.push(getRandomAsciiChar());
 		numCharGuess += 1;
 	}
@@ -46,20 +27,43 @@ function drawMazeRow(numCharGuess, maxScreenSize) {
 		'row': buf.join(''),
 	};
 }
-function drawMaze(screenMax) {
+function getMaze(screenMax, ctx) {
 	const buf = [];
 	let numCharGuess = 0;
 	let counter = 0;
-	while (true) {
-		const result = drawMazeRow(numCharGuess, screenMax);
+	const result = getMazeRow(numCharGuess, screenMax, ctx);
+	const row = result.row
+	const textMetric = ctx.measureText(row);
+	const numRows = screenMax /
+		(Math.abs(textMetric.actualBoundingBoxAscent) +
+		Math.abs(textMetric.actualBoundingBoxDescent));
+	counter++;
+	numCharGuess = result.sizeHint;
+	buf.push(row);
+	while (counter < numRows) {
+		const result = getMazeRow(numCharGuess, screenMax, ctx);
 		const row = result.row;
 		numCharGuess = result.sizeHint;
 		buf.push(row);
-		const textMetric = ctx.measureText(buf.join(''));
 		counter++;
-		if (screenMax / (Math.abs(textMetric.actualBoundingBoxAscent) + Math.abs(textMetric.actualBoundingBoxDescent)) < counter) break;
 	}
 	return buf.join('');
 }
-const mazeString = drawMaze(screenMax);
-maze.innerText = mazeString;
+function setup() {
+	const dpr = window.devicePixelRatio;
+	const w = Math.ceil(window.screen.width);
+	const h = Math.ceil(window.screen.height);
+	const screenMax = Math.max(w, h);
+	const fontSize = 3;
+	const maze = document.getElementById('maze');
+	const canvas = document.createElement('canvas');
+	canvas.style.width = w;
+	canvas.style.height = h;
+	const ctx = canvas.getContext('2d');
+	ctx.scale(dpr, dpr);
+	ctx.font = fontSize + 'em maze';
+	maze.style.fontSize = fontSize + 'em';
+	return {screenMax, ctx, maze, canvas};
+}
+const context = setup();
+context.maze.innerText = getMaze(context.screenMax, context.ctx);
