@@ -1,19 +1,13 @@
 const path =  require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
-	mode: 'production',
 	entry: './src/script.js',
 	resolve: {
 		alias: {
 			assets: path.resolve(__dirname, './assets'),
 		},
-	},
-	devServer: {
-		contentBase: './dist',
-		hot: true,
 	},
 	plugins : [
 		new HtmlWebpackPlugin({
@@ -39,12 +33,6 @@ module.exports = {
 				test: /\.woff2$/i,
 				type: 'asset/resource',
 			},
-		],
-	},
-	optimization: {
-		minimizer: [
-			new CssMinimizerPlugin(),
-			'...',
 		],
 	},
 };
