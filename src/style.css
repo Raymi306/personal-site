@@ -85,6 +85,11 @@ a:active {
 	padding: 0;
 	font-size: 4em;
 }
+@media (width <= 360px) {
+	.header h1 {
+		font-size: 3em;
+	}
+}
 .aside {
 	grid-area: aside;
 	overflow-y: auto;
@@ -103,7 +108,7 @@ a:active {
 	display: flex;
 	justify-content: space-between;
 }
-@media (orientation: landscape) {
+@media (width > 580px) {
 	.grid-wrapper {
 		grid-template-areas:
 		"header header"
@@ -121,7 +126,7 @@ a:active {
 		list-style-image: linear-gradient(to left bottom, var(--gold-5), var(--purple--1));
 	}
 }
-@media (orientation: portrait) {
+@media (width <= 580px) {
 	.grid-wrapper {
 		width: 100%;
 		display: grid;
@@ -138,7 +143,6 @@ a:active {
 		justify-content: flex-start;
 		align-items: center;
 		flex-direction: column;
-		font-size: 3vw;
 		margin-inline: 2rem;
 		margin-top: 0.5rem;
 		margin-bottom: 0.5rem;
