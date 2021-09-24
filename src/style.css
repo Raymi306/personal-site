@@ -51,6 +51,21 @@ a:hover {
 a:active {
 	color: lime;
 }
+#draw-button {
+	margin: 0;
+	padding: 0.3em 0.5em 0.3em 0.5em;
+	text-align: center;
+	color: var(--gold-5);
+	text-shadow: 0.2px -0.1 0.1 whitesmoke;
+	background-color: var(--green-1);
+	border-radius: 3px;
+	box-shadow: 	inset 1px 1px 2px rgba(111, 175, 130, .6),
+			inset -1px -1px 2px rgba(74, 27, 31, .6);
+}
+#draw-button:active {
+	box-shadow: 	inset -1px -1px 2px rgba(111, 175, 130, .6),
+			inset 1px 1px 2px rgba(74, 27, 31, .6);
+}
 .porple {
 	background-color: var(--purple-1);
 	opacity: 0.77;
@@ -123,7 +138,7 @@ a:active {
 	display: flex;
 	justify-content: space-between;
 }
-@media (width > 580px) {
+@media (min-width: 580px) {
 	.grid-wrapper {
 		grid-template-areas:
 		"header header"
@@ -137,7 +152,10 @@ a:active {
 		margin-top: 0.3em;
 	}
 }
-@media (width <= 580px) {
+@media (max-width: 579px) {
+	.hide-when-small {
+		display: none
+	}
 	.grid-wrapper {
 		width: 100%;
 		display: grid;

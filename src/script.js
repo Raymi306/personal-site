@@ -65,5 +65,10 @@ function setup() {
 	maze.style.fontSize = fontSize + 'em';
 	return {screenMax, ctx, maze, canvas};
 }
+function draw(context) {
+	context.maze.innerText = getMaze(context.screenMax, context.ctx);
+
+}
 const context = setup();
-context.maze.innerText = getMaze(context.screenMax, context.ctx);
+draw(context);
+document.getElementById('draw-button').addEventListener('click', () => {draw(context)});
