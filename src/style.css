@@ -123,7 +123,7 @@ a:active {
 	display: flex;
 	justify-content: space-between;
 }
-@media (min-width: 580px) {
+@media (width > 580px) {
 	.grid-wrapper {
 		grid-template-areas:
 		"header header"
@@ -137,7 +137,7 @@ a:active {
 		margin-top: 0.3em;
 	}
 }
-@media (max-width: 580px) {
+@media (width <= 580px) {
 	.grid-wrapper {
 		width: 100%;
 		display: grid;

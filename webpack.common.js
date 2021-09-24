@@ -14,6 +14,12 @@ module.exports = {
 			template: './src/index.html',
 			minify: true,
 		}),
+		new HtmlWebpackPlugin({
+			template: './src/about.html',
+			minify: true,
+			inject: false,
+			filename: 'about.html',
+		}),
 		new MiniCssExtractPlugin({
 			filename: '[name].css',
 		}),
