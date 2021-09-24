@@ -32,7 +32,7 @@ html, body {
 	height: 100%;
 	z-index: -3;
 }
-h1, h2, h3 {
+h1, h2, h3, li {
 	font-weight: bold;
 	text-shadow: 0.05em 0.03em 0.01em var(--gold-3);
 }
@@ -85,17 +85,32 @@ a:active {
 	padding: 0;
 	font-size: 4em;
 }
-@media (width <= 360px) {
+@media (max-width: 360px) {
 	.header h1 {
 		font-size: 3em;
 	}
 }
-.aside {
-	grid-area: aside;
+.nav-side {
+	grid-area: nav-side;
 	overflow-y: auto;
+}
+.nav-side ul {
+	list-style: None;
+	padding: 0;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-left: 2em;
+}
+.nav-side li {
+	margin-top: 1em;
 }
 .body {
 	grid-area: body;
+}
+.body-bottom-left {
+	grid-area: body-bottom-left;
+}
+.body, .body-bottom-left {
 	position: relative;
 	text-align: center;
 	background-color: var(--green-1);
@@ -108,54 +123,46 @@ a:active {
 	display: flex;
 	justify-content: space-between;
 }
-@media (width > 580px) {
+@media (min-width: 580px) {
 	.grid-wrapper {
 		grid-template-areas:
 		"header header"
-		"aside  body"
+		"nav-side body"
+		"body-bottom-left body"
 		"footer footer";
 		grid-template-columns: min-content auto;
-		grid-template-rows: minmax(min-content, max-content) minmax(auto, 90vh) minmax(max-content, auto);
-		grid-gap: 0.3em;
+		grid-template-rows: minmax(min-content, max-content) auto minmax(auto, 90vh) minmax(max-content, auto);
 	}
-	.aside {
-		margin-left: 0.3em;
-		padding-left: 1em;		
-	}
-	.aside ul {
-		list-style-image: linear-gradient(to left bottom, var(--gold-5), var(--purple--1));
+	.nav-side {
+		margin-top: 0.3em;
 	}
 }
-@media (width <= 580px) {
+@media (max-width: 580px) {
 	.grid-wrapper {
 		width: 100%;
 		display: grid;
 		grid-template-areas:
 		"header"
-		"aside"
+		"nav-side"
 		"body"
 		"footer";
 		grid-template-rows: minmax(min-content, max-content) minmax(auto, max-content) minmax(10vw, auto) minmax(max-content, auto);
 		grid-gap: 0.3em;
 	}
-	.aside {
+	.body-bottom-left {
+		display: none
+	}
+	.nav-side {
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
 		flex-direction: column;
-		margin-inline: 2rem;
-		margin-top: 0.5rem;
-		margin-bottom: 0.5rem;
 		padding: 1rem;		
 	}
-	.aside ul {
+	.nav-side ul {
 		padding: 0;
 		display: flex;
 		align-items: center;
 		flex-direction: column;
-		list-style-type: none;
-	}
-	.footer {
-		margin-top: 0.5rem;
 	}
 }
