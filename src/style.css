@@ -66,6 +66,12 @@ a:active {
 	box-shadow: 	inset -1px -1px 2px rgba(111, 175, 130, .6),
 			inset 1px 1px 2px rgba(74, 27, 31, .6);
 }
+.indent-1 {
+	padding-left: 2.5rem;
+}
+.indent-0 {
+	padding-left: 1rem;
+}
 .porple {
 	background-color: var(--purple-1);
 	opacity: 0.77;
@@ -109,12 +115,11 @@ a:active {
 	grid-area: nav-side;
 	overflow-y: auto;
 }
+.nav-side h3 {
+	margin: 1rem 0 0 1rem;
+}
 .nav-side ul {
 	list-style: None;
-	padding: 0;
-	padding-top: 1em;
-	padding-bottom: 1em;
-	padding-left: 2em;
 }
 .nav-side li {
 	margin-top: 1em;

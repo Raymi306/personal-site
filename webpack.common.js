@@ -20,6 +20,18 @@ module.exports = {
 			inject: false,
 			filename: 'about.html',
 		}),
+		new HtmlWebpackPlugin({
+			template: './src/resume.html',
+			minify: true,
+			inject: false,
+			filename: 'resume.html',
+		}),
+		new HtmlWebpackPlugin({
+			template: './src/tutorials/basic-dns.html',
+			minify: true,
+			inject: false,
+			filename: 'tutorials/basic-dns.html',
+		}),
 		new MiniCssExtractPlugin({
 			filename: '[name].css',
 		}),
