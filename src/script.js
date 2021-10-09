@@ -35,7 +35,6 @@ function getMaze(screenMax, ctx) {
 	const row = result.row
 	const textMetric = ctx.measureText('a');
 	const numRows = screenMax / textMetric.width * 2;
-	console.log(screenMax, textMetric.width);
 	counter++;
 	numCharGuess = result.sizeHint;
 	buf.push(row);
