@@ -33,10 +33,9 @@ function getMaze(screenMax, ctx) {
 	let counter = 0;
 	const result = getMazeRow(numCharGuess, screenMax, ctx);
 	const row = result.row
-	const textMetric = ctx.measureText(row);
-	const numRows = screenMax /
-		(Math.abs(textMetric.actualBoundingBoxAscent) +
-		Math.abs(textMetric.actualBoundingBoxDescent));
+	const textMetric = ctx.measureText('a');
+	const numRows = screenMax / textMetric.width * 2;
+	console.log(screenMax, textMetric.width);
 	counter++;
 	numCharGuess = result.sizeHint;
 	buf.push(row);

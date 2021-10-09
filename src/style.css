@@ -52,19 +52,21 @@ a:active {
 	color: lime;
 }
 #draw-button {
-	margin: 0;
-	padding: 0.3em 0.5em 0.3em 0.5em;
+	background: none;
+	border: none;
+	cursor: pointer;
+	font: inherit;
+	margin: inherit;
+	padding: inherit;
 	text-align: center;
-	color: var(--gold-5);
+	color: var(--green-5);
 	text-shadow: 0.2px -0.1 0.1 whitesmoke;
-	background-color: var(--green-1);
-	border-radius: 3px;
-	box-shadow: 	inset 1px 1px 2px rgba(111, 175, 130, .6),
-			inset -1px -1px 2px rgba(74, 27, 31, .6);
+}
+#draw-button:hover {
+	color: var(--green-special-a);
 }
 #draw-button:active {
-	box-shadow: 	inset -1px -1px 2px rgba(111, 175, 130, .6),
-			inset 1px 1px 2px rgba(74, 27, 31, .6);
+	color: lime;
 }
 .indent-1 {
 	padding-left: 2.5rem;
