@@ -32,23 +32,24 @@ html, body {
 	height: 100%;
 	z-index: -3;
 }
-h1, h2, h3, li {
+h1, h2, h3 {
 	font-weight: bold;
 	text-shadow: 0.05em 0.03em 0.01em var(--gold-3);
 }
 a {
 	text-decoration: none;
 }
-a:link {
-	color: var(--green-5);
+a:link, #draw-button {
+	color: var(--gold-5);
+	text-shadow: 0.02em 0.03em 0.01em var(--green-special-a)
 }
 a:visited {
-	color: var(--green-4);
+	color: var(--gold-4);
 }
-a:hover {
+a:hover, #draw-button:hover {
 	color: var(--green-special-a);
 }
-a:active {
+a:active, #draw-button:active {
 	color: lime;
 }
 #draw-button {
@@ -59,14 +60,6 @@ a:active {
 	margin: inherit;
 	padding: inherit;
 	text-align: center;
-	color: var(--green-5);
-	text-shadow: 0.2px -0.1 0.1 whitesmoke;
-}
-#draw-button:hover {
-	color: var(--green-special-a);
-}
-#draw-button:active {
-	color: lime;
 }
 .indent-1 {
 	padding-left: 2.5rem;
