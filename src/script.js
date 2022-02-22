@@ -1,19 +1,17 @@
 import './style.css';
 import 'assets/mazeletter-metropolis.woff2';
 
-function getRandomAsciiChars(num) {
-	const buf = [];
-	for (let i = 0; i < num; i++) {
-		const code = Math.floor(Math.random() * 93) + 33;
-		const character = String.fromCharCode(code);
-		buf.push(character);
-	}
-	return buf;
-}
 function getRandomAsciiChar() {
 	const code = Math.floor(Math.random() * 93) + 33;
 	const character = String.fromCharCode(code);
 	return character;
+}
+function getRandomAsciiChars(num) {
+	const buf = [];
+	for (let i = 0; i < num; i++) {
+		buf.push(getRandomAsciiChar());
+	}
+	return buf;
 }
 function getMazeRow(numCharGuess, screenMax, ctx) {
 	const buf = getRandomAsciiChars(numCharGuess);
