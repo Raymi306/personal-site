@@ -4,7 +4,7 @@ module.exports = {
 	...base,
 	mode: 'development',
 	devServer: {
-		contentBase: './dist',
+		static: './dist',
 		hot: true,
 	},
 };
