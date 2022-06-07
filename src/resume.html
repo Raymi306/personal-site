@@ -9,7 +9,6 @@
 		html, body {
 			background-color: #553651;
 			color: #fcf6de;
-			margin: 2em;
 			font-family: "Helvetica", sans-serif;
 			font-size: 1.1em;
 		}
@@ -20,7 +19,6 @@
 		.inner-body {
 			background-color: #220f24;
 			padding: 2em;
-			border-radius: 5px;
 		}
 		p {
 			line-height: 2;
@@ -33,24 +31,44 @@
 		}
 		ul {
 			list-style-type: none;
+			padding: 0;
 		}
 		li {
 			padding: 0.3em;
 			margin: 0.5em;
+			font-weight: lighter;
+		}
+		li>b {
+			font-weight: bold;
+			margin-right: 1em;
 		}
 		li:nth-child(odd) {
 			background: #352433;
+		}
+		h1, h2, h4, li>b {
+			color: #60e84c;
 		}
 		h1, h3 {
 			font-weight: bold;
 			margin: 0;
 		}
+		.header {
+			margin: 2em 0 2em 2em;
+		}
+		h4 {
+			margin: 2em 0 0.5em 0;
+		}
+		.job-dates {
+			font-weight: lighter;
+			font-size: 0.9rem;
+			color: #fcf6de
+		}
 		</style>
 	</head>
 	<body>
-		<a href="https://andrew.let-them.cyou/index.html">Home</a>
-		<br>
-		<br>
+		<div class="header">
+			<a href="https://andrew.let-them.cyou/index.html">Home</a>
+		</div>
 		<div class="inner-body">
 			<h1><a href="mailto: raymi306@gmail.com">Andrew Langmeier</a></h1>
 			<p>
@@ -59,9 +77,12 @@
 			<br>
 			<h3>Professional Experience</h3>
 			<hr/>
-			<h4>Software Engineer, Bigleaf Networks – Jan 2022
-			<h4>Site Reliability Engineer, JP Morgan Chase – Oct 2021-Jan 2022</h4>
-			<h4>Developer, Grathwol Automation/Astec Industries – Oct 2019-Aug 2021</h4>
+			<h4>Software Engineer<span class="job-dates"> – Jan 2022-present</span></h4>
+			Bigleaf Networks
+			<h4>Site Reliability Engineer<span class="job-dates"> – Jan 2022<span></h4>
+			JP Morgan Chase
+			<h4>Developer<span class="job-dates"> – Oct 2019-Aug 2021<span></h4>
+			Grathwol Automation/Astec Industries
 			<ul>
 				<li>
 					Create and maintain telematics solutions from embedded Linux to HTML frontend
@@ -79,7 +100,8 @@
 					Assist both teammates and customers with troubleshooting tasks across all stacks
 				</li>
 			</ul>
-			<h4>QA and Automation for art of rally, Funselektor Labs – Apr 2019-Sep 2020</h4>
+			<h4>QA and Automation for art of rally<span class="job-dates"> – Apr 2019-Sep 2020<span></h4>
+			Funselektor Labs
 			<ul>
 				<li>
 					Write and maintain a Python tool to automate mundane Steam leaderboard maintenance tasks, previously performed manually by lead developer
@@ -92,7 +114,7 @@
 			<hr/>
 			<ul>
 				<li>
-					<b>Frontend:</b>    Typescript, Vue.js, HTML5+CSS, lodash, npm, webpack, web sockets
+					<b>Frontend:</b>    Typescript, Vue.js, HTML5+CSS, npm, webpack, web sockets
 				</li>
 				<li>
 					<b>Backend:</b>    Python3, Flask, MySQL; Ubuntu, nginx, UWSGI; REST, MQTT
@@ -101,22 +123,25 @@
 					<b>Embedded:</b>    Python3, Buildroot Linux, U-Boot, SQLite, SocketCAN, J1939, I/O
 				</li>
 				<li>
-					<b>Unix:</b>    Networking tools (StrongSWAN, Wireguard, BIRD, iptables, Samba); nvim, Xen VMs
+					<b>Unix:</b>    Networking tools (StrongSWAN, BIRD, iptables, Samba); nvim, Xen VMs
 				</li>
 				<li>
-					<b>Python 3.x:</b>    pdb, unittest, hypothesis, coverage, tkinter, requests, parallel/async processing
+					<b>Python 3.x:</b>    pdb, unittest, hypothesis, tkinter, requests, parallel/async
 				</li>
 				<li>
-					<b>Database:</b>    MySQL, SQLite, SQLAlchemy ORM, NoSQL (MySQL JSON), Design experience
+					<b>Database:</b>    MySQL, SQLite, SQLAlchemy, NoSQL (MySQL JSON), Postgres
 				</li>
 				<li>
-					<b>Cloud:</b>    Digital Ocean (Load balancer, managed DB, VPS), Azure (Basic troubleshooting)
+					<b>Cloud:</b>    Digital Ocean (Load balancer, managed DB, VPS), Azure (Basics)
 				</li>
 				<li>
 					<b>VCS:</b>    Git+Github, familiarity with Github Actions, Azure DevOps
 				</li>
 				<li>
 					<b>Misc. Web:</b>    DNS, LetsEncrypt/certbot, Browser extension development
+				</li>
+				<li>
+					<b>Rust:</b>	Actix Web, sdl2
 				</li>
 				<li>
 					<b>Java:</b>    Selenium web driver automation, web scraping, JUnit
