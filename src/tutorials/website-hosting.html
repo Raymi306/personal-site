@@ -60,7 +60,7 @@
         <i>Cost: $4 per month.</i>
         <br>
         The server will be some computer with a public IP address that can store the files for your website and present them to the world when asked.
-        We will be using Digital Ocean to rent a Virtual Private Server, or VPS. Digital Ocean calls these droplets.
+        We will be using <a href="https://www.digitalocean.com/">Digital Ocean</a> to rent a Virtual Private Server, or VPS. Digital Ocean calls these droplets.
         A VPS, as its name implies, is not a physical computer.
         A physical computer is behind the scenes, and it is shared by way of virtual machines that allow for the resources of the physical computer to be split up and then distributed to different users.
         Create an account with Digital Ocean. Then, look for the 'Create' dropdown, and select 'Droplets'.
@@ -146,7 +146,7 @@
         There are several domain name registrars to choose from. For the purposes of this tutorial, we will use Namecheap.
         Domains come in two parts, the domain itself and the Top Level Domain (TLD), the most common of which being '.com'.
         You may consider other TLDs to potentially save money or to make your full domain name more memorable.
-        Go to <a href="https://namecheap.com">`namecheap.com`</a> and find a domain that you like, taking note of the initial registration fee and the renewal fee.
+        Go to <a href="https://namecheap.com">namecheap.com</a> and find a domain that you like, taking note of the initial registration fee and the renewal fee.
         The length, potential popularity, and TLD of the domain that you choose all influence the price, but you can reasonably get away with only owing $15 a year.
         Once you have acquired the domain, you must configure it. This is done by editing DNS records.
         The two most important records for our purposes are 'A' records and 'CNAME' records.
@@ -160,7 +160,7 @@
         <hr>
         <p>
         Back to our server! We're ready to install, configure, and run a service that can serve our beloved website to the public!
-        We will be using a program called 'nginx' for this purpose.
+        We will be using a program called <a href="https://nginx.org/en/">nginx</a> for this purpose.
         Install nginx with <code>sudo apt install nginx</code>.
         Then, navigate to `/etc/nginx/conf.d`, and create a file, probably named after your domain, ending in `.conf` with <code>nano mydomain.conf</code>.
         Enter in the following information:
@@ -181,6 +181,7 @@ server {
         Run <code>mkdir -p /srv/www</code> to make the given directory if it does not exist.
         Before we put our website in this directory, let's go ahead and quickly set up SSL certificates for our domain.
         This will encrypt traffic to and from your website, and while it isn't strictly necessary, it is a best practice that is easy to adhere to.
+        To accomplish this, we will make use of <a href="https://certbot.eff.org/">certbot</a>.
         <br>
         <code>sudo apt install certbot</code>
         <br>
@@ -189,7 +190,7 @@ server {
         Follow the prompts from certbot, selecting your domain and your domain with the 'www.' subdomain prepended.
         When all is said and done, certbot will edit your configuration file in `/etc/nginx/conf.d` for you, and bam, you have SSL configured and ready to go!
         We are finally ready to place our website files on the server! There are several options for this.
-        You can download a program such as WinSCP or Filezilla, and use this to connect to your server and transfer files with the benefit of a graphical user interface.
+        You can download a program such as <a href="https://winscp.net/eng/index.php">WinSCP</a> or <a href="https://filezilla-project.org/">Filezilla</a>, and use this to connect to your server and transfer files with the benefit of a graphical user interface.
         Or, you can use the `scp` program, which sends files over ssh and is already installed on modern Windows and Linux alike.
         <code>scp -P YOUR_SSH_PORT PATH_TO_LOCAL_FILES/* USER@DOMAIN:/srv/www</code>
         Once you have placed your files, go ahead and make sure that nginx is running with your latest changes with <code>sudo systemctl restart nginx</code>.
