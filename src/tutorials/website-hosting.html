@@ -26,7 +26,12 @@
 			color: goldenrod;
 		}
         code, pre, kbd {
-            font-size: 1rem;
+            font-size: 0.95rem;
+            background-color: #220f24;
+            padding: 0.2rem;
+        }
+        code {
+            white-space: nowrap;
         }
         pre {
             overflow: scroll;
@@ -86,7 +91,7 @@
         On Windows, you want to hit the Windows key and search for Powershell.
         We are going to use a program called ssh to connect with the server.
         Look at your droplet on the Digital Ocean dashboard and take note of its public IP address.
-        Type into your terminal <code>`ssh root@xxx.xxx.xxx.xxx`</code>, replace the x's with the droplet's public IP, and hit enter. It may give you a notice that you have never connected to this system before, ignore this.
+        Type into your terminal <code>ssh root@xxx.xxx.xxx.xxx</code>, replace the x's with the droplet's public IP, and hit enter. It may give you a notice that you have never connected to this system before, ignore this.
         If all goes well, it should prompt you for the password of the root user. You created this password when making the droplet, hopefully you remember it!
         Once you enter the correct password, you will then be dropped into a shell on the server.
         Congratulations, you have logged in!
@@ -100,7 +105,7 @@
         </pre>
         <p>
         If you are unfamiliar with directories (AKA folders), or if you want to learn about the differences between directories in Windows and Linux, now may be a good time to do some quick Google searches.
-        It is important to keep your server up to date. You can run <code>`apt update`</code> followed by <code>`apt upgrade`</code> to accomplish this.
+        It is important to keep your server up to date. You can run <code>apt update</code> followed by <code>apt upgrade</code> to accomplish this.
         You may also want to look into 'unattended-upgrades', which can do this for you automatically.
         Be aware that sometimes upgrades break things though. Furthermore, operating systems are only supported for so long.
         Ubuntu releases are supported for 5 years, or 10 if you pay for extended support.
@@ -112,13 +117,13 @@
         This means that bad actors can try connecting to IP addresses on port 22 and spam connection attempts, hoping to get lucky.
         Let's change the port sshd runs on to make life a bit harder for bad actors.
         Note that once you change the port, you must change how you ssh in to the server.
-        Use the command <code>`ssh -p PORTNUMBER root@IPADDRESS`</code> to accomplish this, substituting your port number and ipaddress in.
-        To change the port that sshd runs on, run the command <code>`nano /etc/ssh/sshd_config`</code>. This will open the config file in the text editor nano.
+        Use the command <code>ssh -p PORTNUMBER root@IPADDRESS</code> to accomplish this, substituting your port number and ipaddress in.
+        To change the port that sshd runs on, run the command <code>nano /etc/ssh/sshd_config</code>. This will open the config file in the text editor nano.
         Look for a line beginning with a '#', the '#' comments out a line, and commented out lines often function as a type of documentation.
         Delete the '#', and change the port number to a number of your choice between 1024 and 65535.
         Numbers below this range run a higher risk of running into a common port used for other services, but our server isn't currently running too many things that would conflict with our new port.
-        Save the file by pressing and `&lt<kbd>Ctrl</kbd> + <kbd>x</kbd>&gt` and `<kbd>y</kbd>`.
-        Now we need to restart the sshd service. Run <code>`systemctl restart sshd`</code>, and we're all done!
+        Save the file by pressing and &lt<kbd>Ctrl</kbd> + <kbd>x</kbd>&gt and <kbd>y</kbd>.
+        Now we need to restart the sshd service. Run <code>systemctl restart sshd</code>, and we're all done!
         Remember that you have to always specify the new port when connecting in the future.
         One final security note; Using the `root` user is a bad practice as it is possible to inadvertently ruin your system with little to no warning.
         As a task for the reader, look up how to create a new user with sudo privileges, in our case, the privilege to perform tasks requiring root when needed.
@@ -136,21 +141,21 @@
         There are several domain name registrars to choose from. For the purposes of this tutorial, we will use Namecheap.
         Domains come in two parts, the domain itself and the Top Level Domain (TLD), the most common of which being '.com'.
         You may consider other TLDs to potentially save money or to make your full domain name more memorable.
-        Go to `namecheap.com` and find a domain that you like, taking note of the initial registration fee and the renewal fee.
+        Go to <a href="https://namecheap.com">`namecheap.com`</a> and find a domain that you like, taking note of the initial registration fee and the renewal fee.
         The length, potential popularity, and TLD of the domain that you choose all influence the price, but you can reasonably get away with only owing $15 a year.
         Once you have acquired the domain, you must configure it. This is done by editing DNS records.
         The two most important records for our purposes are 'A' records and 'CNAME' records.
         Set the 'A' record to point to the public IP of your server. Then, set the CNAME record with the subdomain 'www.' to point to your domain.
         CNAMES are aliases, so if you change your 'A' record again for any reason, the 'www.' subdomain follows it for you!
-        Thats about it for domains! Now, you can log in to your server with <code>`ssh -p PORTNUMBER USER@DOMAINNAME`</code>, and we are ready to start serving things on the web.
+        Thats about it for domains! Now, you can log in to your server with <code>ssh -p PORTNUMBER USER@DOMAINNAME</code>, and we are ready to start serving things on the web.
         Check out <a href="https://andrew.let-them.cyou/tutorials/basic-dns.html">this link</a> for more information about DNS.
 		</p>
         <h2 id="WebServer">Web Server Configuration</h2>
         <p>
         Back to our server! We're ready to install, configure, and run a service that can serve our beloved website to the public!
         We will be using a program called 'nginx' for this purpose.
-        Install nginx with <code>`sudo apt install nginx`</code>.
-        Then, navigate to `/etc/nginx/conf.d`, and create a file, probably named after your domain, ending in `.conf` with <code>`nano mydomain.conf`</code>.
+        Install nginx with <code>sudo apt install nginx</code>.
+        Then, navigate to `/etc/nginx/conf.d`, and create a file, probably named after your domain, ending in `.conf` with <code>nano mydomain.conf</code>.
         Enter in the following information:
         </p>
         <pre>
@@ -166,21 +171,21 @@ server {
         <p>
         This configures nginx to look for requests to your domain on port 80, and to serve files from the location `/srv/www`.
         Next up, we should go ahead and make sure that the path /srv/www exists!
-        Run <code>`mkdir -p /srv/www`</code> to make the given directory if it does not exist.
+        Run <code>mkdir -p /srv/www</code> to make the given directory if it does not exist.
         Before we put our website in this directory, let's go ahead and quickly set up SSL certificates for our domain.
         This will encrypt traffic to and from your website, and while it isn't strictly necessary, it is a best practice that is easy to adhere to.
         <br>
-        <code>`sudo apt install certbot`</code>
+        <code>sudo apt install certbot</code>
         <br>
-        <code>`sudo certbot`</code>
+        <code>sudo certbot</code>
         <br>
         Follow the prompts from certbot, selecting your domain and your domain with the 'www.' subdomain prepended.
         When all is said and done, certbot will edit your configuration file in `/etc/nginx/conf.d` for you, and bam, you have SSL configured and ready to go!
         We are finally ready to place our website files on the server! There are several options for this.
         You can download a program such as WinSCP or Filezilla, and use this to connect to your server and transfer files with the benefit of a graphical user interface.
         Or, you can use the `scp` program, which sends files over ssh and is already installed on modern Windows and Linux alike.
-        <code>`scp -P YOUR_SSH_PORT PATH_TO_LOCAL_FILES/* USER@DOMAIN:/srv/www`</code>
-        Once you have placed your files, go ahead and make sure that nginx is running with your latest changes with <code>`sudo systemctl restart nginx`</code>.
+        <code>scp -P YOUR_SSH_PORT PATH_TO_LOCAL_FILES/* USER@DOMAIN:/srv/www</code>
+        Once you have placed your files, go ahead and make sure that nginx is running with your latest changes with <code>sudo systemctl restart nginx</code>.
         Then, try and navigate to your website! If all goes well, and you have an 'index.html' file sitting inside `/srv/www`, your webpage should appear!
         </p>
 	</body>
