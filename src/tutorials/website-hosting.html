@@ -154,14 +154,14 @@
         Enter in the following information:
         </p>
         <pre>
-            server {
-                listen       80;
-                server_name  YOUR_DOMAIN_GOES_HERE, www.YOUR_DOMAIN_GOES_HERE;
+server {
+    listen       80;
+    server_name  YOUR_DOMAIN_GOES_HERE, www.YOUR_DOMAIN_GOES_HERE;
 
-                location / {
-                    root   /srv/www/;
-                }
-            }
+    location / {
+        root   /srv/www/;
+    }
+}
         </pre>
         <p>
         This configures nginx to look for requests to your domain on port 80, and to serve files from the location `/srv/www`.
