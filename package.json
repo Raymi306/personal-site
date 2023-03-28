@@ -10,9 +10,12 @@
   },
   "private": true,
   "scripts": {
-    "build": "webpack --config webpack.production.js; gzip -kr -9 dist/*",
+    "build": "webpack --config webpack.production.js && gzip -kr -9 dist/*",
     "dev": "webpack serve --config webpack.development.js",
     "deploy": "scp -P 57018 dist/* andrew@let-them.cyou:/srv/www/lt/andrew",
     "rsync": "rsync -rvz --progress -e 'ssh -p 57018' ./dist/* andrew@let-them.cyou:/srv/www/lt/andrew"
+  },
+  "dependencies": {
+    "copy-webpack-plugin": "^11.0.0"
   }
 }
