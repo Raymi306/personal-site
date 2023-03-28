@@ -164,7 +164,7 @@ a:active, #draw-button:active {
 		"nav-side"
 		"body"
 		"footer";
-		grid-template-rows: minmax(min-content, max-content) minmax(auto, max-content) minmax(10vw, auto) minmax(max-content, auto);
+		grid-template-rows: minmax(min-content, max-content) minmax(auto, max-content) minmax(10vw, auto) minmax(max-content, 2rem);
 		grid-gap: 0.3em;
 	}
 	.body-bottom-left {
