@@ -46,12 +46,11 @@
 		<h2 id="Overview">Overview</h2>
         <hr>
         <p>
-        This tutorial will explain how to host a static webpage.
-        That is, a webpage that does not have a backend component.
+        This tutorial will explain how to host a static webpage in the cloud.
+        A static webpage is a webpage that does not have a backend component.
         A backend for a website may consist of things such as code and databases to allow the website to retrieve data and act in a dynamic way.
-        The website that we will be serving should consist of at least one HTML file, and optional CSS files and other resources such as images.
-        This tutorial will not go over creating the website itself, just hosting it.
-        Furthermore, the website will be hosted in the cloud, rather than on a personally owned computer.
+        The website that we will be serving should consist of at least one HTML file, optional CSS files, and other resources such as images.
+        This tutorial will focus on hosting rather than building the website.
         </p>
 		<hr>
 		<h2 id="Server">Server</h2>
@@ -59,43 +58,52 @@
 		<p>
         <i>Cost: $4 per month.</i>
         <br>
-        The server will be some computer with a public IP address that can store the files for your website and present them to the world when asked.
-        We will be using <a href="https://www.digitalocean.com/">Digital Ocean</a> to rent a Virtual Private Server, or VPS. Digital Ocean calls these droplets.
+        For our purposes, a server is a computer with a public IP address that can store the files for your website and present them to the world.
+        We will be using <a href="https://www.digitalocean.com/">Digital Ocean</a> to rent a Virtual Private Server, or VPS.
         A VPS, as its name implies, is not a physical computer.
-        A physical computer is behind the scenes, and it is shared by way of virtual machines that allow for the resources of the physical computer to be split up and then distributed to different users.
-        Create an account with Digital Ocean. Then, look for the 'Create' dropdown, and select 'Droplets'.
-        We now have several options to choose from. For the region, you should choose one close to your desired audience.
+        A physical computer lies behind the scenes, and is shared by way of virtual machines that allow for the resources of the physical computer to be split and distributed to different users.
+        </p>
+        <p>
+        Create an account with Digital Ocean. Then look for the 'Create' dropdown, and select 'Droplets'.
+        Droplets are Digital Ocean jargon for VPSs.
+        We now have several options to consider. For the region, you should choose one close to your desired audience.
         If you live on the East coast of the United States, choosing the New York region is a safe bet.
+        Network performance characters are improved by proximity.
+        </p>
+        <p>
         Next, we must choose an OS. Any OS will work, but for the purposes of this tutorial, choose Ubuntu.
-        For the size, the cheapest option will be Shared CPU, which should already be selected.
-        For CPU options, switch to a regular SSD, and scroll the options to the left to unveil a $4/mo option.
-        For simplicity's sake, change the authentication method to password. You can always change it to SSH key auth later,
-        but setting up SSH authentication is a tad out of scope for this tutorial.
-        It isn't hard though, it is more secure, and Digital Ocean even provides a tutorial.
-        Over-achievers feel free to diverge here and explore the SSH key route, especially if you have some Unix experience already!
-        Go ahead and enable monitoring in the extra options section, then scroll to the bottom where it says 'Finalize Details'.
-        You can leave the hostname as is, or name the droplet something memorable for yourself.
+        For the size, the cheapest option will be "Shared CPU", which should already be selected.
+        For CPU options, switch to a regular SSD, and scroll the options to the left to unveil a $4/month option.
+        For simplicity's sake, change the authentication method to password. You can always change it to SSH key authentication later,
+        but setting up SSH authentication is out of scope for this tutorial.
+        SSH authentication is a more secure authentication method, and overachievers may be interested in Digital Ocean's tutorial.
+        Feel free to diverge here and explore the SSH key route, especially if you have some Unix experience already.
+        Enable monitoring in the extra options section, then scroll to the bottom where it says 'Finalize Details'.
+        You can leave the hostname as is, or name the droplet something memorable.
         When all done, click create droplet, wait a few moments, and you have your very own server to play with!
-        <br>
-        <br>
-        Why are we renting a VPS instead of using a spare computer? Well, using a spare computer is a perfectly valid option, but it comes with several complications.
-        The main complication has to do with IP addresses. IP addresses are how computers find other computers on the internet, and in the case of the still ubiquitous version 4 IP address, there are not enough to go around.
+        </p>
+        <p>
+        Why are we renting a VPS instead of using a spare computer?
+        Well, using a spare computer is a perfectly valid option, but it comes with several complications.
+        The main complication has to do with IP addresses.
+        IP addresses are how computers find other computers on the internet, and in the case of the still ubiquitous version 4 IP address, there are not enough to go around.
         This means that your computer is not directly exposed to the internet with a unique address.
         Instead, your internet service provider allocates a unique address only for your router.
         All devices connected to the router then have a private address, and reach out to the internet through the router.
         As an additional complication, for most service plans, you are not guaranteed a static IP address.
         Your ISP can change the address at any time, meaning that other computers looking to find you will have a hard time.
         This can be solved with a combination of two things, port forwarding and dynamic DNS, but these concepts are out of scope for this article.
-        <br>
-        <br>
+        </p>
+        <p>
         Now that your server is running, you have a few options for logging in to it.
-        You may use the Digital Ocean dashboard, or you can use a terminal on your computer.
-        Do not fret if you have never used a terminal before, now is a great time to start!
+        You may use the Digital Ocean dashboard or a terminal on your computer.
+        Do not fret if you have never used a terminal before - now is a great time to start!
         Assuming you have a modern up-to-date installation of Windows, or a Unix system, open up a terminal.
         On Windows, you want to hit the Windows key and search for Powershell.
         We are going to use a program called ssh to connect with the server.
         Look at your droplet on the Digital Ocean dashboard and take note of its public IP address.
-        Type into your terminal <code>ssh root@xxx.xxx.xxx.xxx</code>, replace the x's with the droplet's public IP, and hit enter. It may give you a notice that you have never connected to this system before, ignore this.
+        Type into your terminal <code>ssh root@xxx.xxx.xxx.xxx</code>, replace the x's with the droplet's public IP, and hit enter.
+        It may give you a notice that you have never connected to this system before - ignore this.
         If all goes well, it should prompt you for the password of the root user. You created this password when making the droplet, hopefully you remember it!
         Once you enter the correct password, you will then be dropped into a shell on the server.
         Congratulations, you have logged in!
