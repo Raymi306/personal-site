@@ -190,11 +190,12 @@ server {
         Before we put our website in this directory, let's go ahead and quickly set up SSL certificates for our domain.
         This will encrypt traffic to and from your website, and while it isn't strictly necessary, it is a best practice that is easy to adhere to.
         To accomplish this, we will make use of <a href="https://certbot.eff.org/">certbot</a>.
-        <br>
+        </p>
         <code>sudo apt install certbot</code>
         <br>
         <code>sudo certbot</code>
         <br>
+        <p>
         Follow the prompts from certbot, selecting your domain and your domain with the 'www.' subdomain prepended.
         When all is said and done, certbot will edit your configuration file in `/etc/nginx/conf.d` for you, and bam, you have SSL configured and ready to go!
         We are finally ready to place our website files on the server! There are several options for this.
