@@ -183,6 +183,9 @@ a:active, #draw-button:active {
 		align-items: center;
 		flex-direction: column;
 	}
+    .no-margin-top-when-small {
+        margin-top: 0;
+    }
 	.nav-side h3 {
 		margin: 1rem 0 0 0;
 	}
