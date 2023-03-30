@@ -117,6 +117,8 @@
         </pre>
         <p>
         If you are unfamiliar with directories (AKA folders), or if you want to learn about the differences between directories in Windows and Linux, now may be a good time to do some quick Google searches.
+        </p>
+        <p>
         It is important to keep your server up to date. You can run <code>apt update</code> followed by <code>apt upgrade</code> to accomplish this.
         You may also want to look into 'unattended-upgrades', which can do this for you automatically.
         Be aware that sometimes upgrades break things though. Furthermore, operating systems are only supported for so long.
@@ -131,12 +133,14 @@
         Note that once you change the port, you must change how you ssh in to the server.
         Use the command <code>ssh -p PORTNUMBER root@IPADDRESS</code> to accomplish this, substituting your port number and ipaddress in.
         To change the port that sshd runs on, run the command <code>nano /etc/ssh/sshd_config</code>. This will open the config file in the text editor nano.
-        Look for a line beginning with a '#', the '#' comments out a line, and commented out lines often function as a type of documentation.
+        Look for a line beginning with a '#', the '#' comments out a line, and commented out lines often function as a type of documentation in config files.
         Delete the '#', and change the port number to a number of your choice between 1024 and 65535.
         Numbers below this range run a higher risk of running into a common port used for other services, but our server isn't currently running too many things that would conflict with our new port.
         Save the file by pressing and &lt<kbd>Ctrl</kbd> + <kbd>x</kbd>&gt and <kbd>y</kbd>.
         Now we need to restart the sshd service. Run <code>systemctl restart sshd</code>, and we're all done!
         Remember that you have to always specify the new port when connecting in the future.
+        </p>
+        <p>
         One final security note; Using the `root` user is a bad practice as it is possible to inadvertently ruin your system with little to no warning.
         As a task for the reader, look up how to create a new user with sudo privileges, in our case, the privilege to perform tasks requiring root when needed.
         Then, login to that user, and checkout the sshd config file again and see if you can figure out how to disable root login entirely.
@@ -151,11 +155,15 @@
         This is where domains and the Domain Name System (DNS) comes in to play.
         You can purchase a domain name and point it to your public IP so that people only need to remember the domain name.
         'google.com' is much easier to remember than, say, '172.217.0.174'.
-        There are several domain name registrars to choose from. For the purposes of this tutorial, we will use Namecheap.
-        Domains come in two parts, the domain itself and the Top Level Domain (TLD), the most common of which being '.com'.
+        There are several domain name registrars to choose from. For the purposes of this tutorial, we will use <a href="https://namecheap.com">Namecheap</a>.
+        Domains come in two parts, the domain itself and the Top Level Domain (TLD).
+        The most recognizable TLD is '.com'.
         You may consider other TLDs to potentially save money or to make your full domain name more memorable.
+        You can also add one or more subdomains to a domain.
+        Subdomains go before the domain with a dot separator, and are free to configure.
+        'www' is a very common subdomain.
         Go to <a href="https://namecheap.com">namecheap.com</a> and find a domain that you like, taking note of the initial registration fee and the renewal fee.
-        The length, potential popularity, and TLD of the domain that you choose all influence the price, but you can reasonably get away with only owing $15 a year.
+        The length, potential popularity, and TLD of the domain that you choose all influence the price, but you can get away with only owing $15 a year.
         Once you have acquired the domain, you must configure it. This is done by editing DNS records.
         The two most important records for our purposes are 'A' records and 'CNAME' records.
         Set the 'A' record to point to the public IP of your server. Then, set the CNAME record with the subdomain 'www.' to point to your domain.
@@ -185,8 +193,8 @@ server {
         </pre>
         <p>
         This configures nginx to look for requests to your domain on port 80, and to serve files from the location `/srv/www`.
-        Next up, we should go ahead and make sure that the path /srv/www exists!
-        Run <code>mkdir -p /srv/www</code> to make the given directory if it does not exist.
+        Next up, we should go ahead and make sure that the path /srv/www actually exists!
+        Run <code>mkdir -p /srv/www</code> to make the directory.
         Before we put our website in this directory, let's go ahead and quickly set up SSL certificates for our domain.
         This will encrypt traffic to and from your website, and while it isn't strictly necessary, it is a best practice that is easy to adhere to.
         To accomplish this, we will make use of <a href="https://certbot.eff.org/">certbot</a>.
@@ -196,11 +204,14 @@ server {
         <code>sudo certbot</code>
         <br>
         <p>
-        Follow the prompts from certbot, selecting your domain and your domain with the 'www.' subdomain prepended.
-        When all is said and done, certbot will edit your configuration file in `/etc/nginx/conf.d` for you, and bam, you have SSL configured and ready to go!
+        Follow the prompts from certbot, selecting your domain both with and without the 'www' subdomain.
+        Certbot will edit your configuration file in `/etc/nginx/conf.d` for you, and bam, you have SSL configured and ready to go!
+        </p>
+        <p>
         We are finally ready to place our website files on the server! There are several options for this.
-        You can download a program such as <a href="https://winscp.net/eng/index.php">WinSCP</a> or <a href="https://filezilla-project.org/">Filezilla</a>, and use this to connect to your server and transfer files with the benefit of a graphical user interface.
-        Or, you can use the `scp` program, which sends files over ssh and is already installed on modern Windows and Linux alike.
+        You can download a program such as <a href="https://winscp.net/eng/index.php">WinSCP</a> or <a href="https://filezilla-project.org/">Filezilla</a>,
+        and use them to connect and transfer files to your server with the benefit of a graphical user interface.
+        Or, you can use the `scp` program, which sends files over ssh and is already installed on both modern Windows and Linux.
         <code>scp -P YOUR_SSH_PORT PATH_TO_LOCAL_FILES/* USER@DOMAIN:/srv/www</code>
         Once you have placed your files, go ahead and make sure that nginx is running with your latest changes with <code>sudo systemctl restart nginx</code>.
         Then, try and navigate to your website! If all goes well, and you have an 'index.html' file sitting inside `/srv/www`, your webpage should appear!
