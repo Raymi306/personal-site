@@ -34,7 +34,8 @@
             white-space: nowrap;
         }
         pre {
-            overflow: scroll;
+            overflow-x: scroll;
+            overflow-y: auto;
         }
 		</style>
 	</head>
@@ -107,13 +108,18 @@
         If all goes well, it should prompt you for the password of the root user. You created this password when making the droplet, hopefully you remember it!
         Once you enter the correct password, you will then be dropped into a shell on the server.
         Congratulations, you have logged in!
-        If you have never used Linux before, here are some commands to get you oriented:
+        If you have never used Linux before, here are some commands and tips to get you oriented:
         </p>
         <pre>
 `man`: get the manual for a command, type a space and then the name of the command you wish to learn more about
 `pwd`: print working directory
-`ls`: list files in current directory
+`ls`: list files in current directory, will output nothing if no files exist
 `cd`: change directory, type a space and then the path you wish to change into
+
+To go up one directory, type `cd ..`, to go up two, type `cd ../..`
+Use the up and down arrow keys to browse your command history.
+When typing a command or a path, try hitting the Tab key to autocomplete.
+To stop a running program, press \<Ctrl + C\>
         </pre>
         <p>
         If you are unfamiliar with directories (AKA folders), or if you want to learn about the differences between directories in Windows and Linux, now may be a good time to do some quick Google searches.
@@ -124,8 +130,10 @@
         Be aware that sometimes upgrades break things though. Furthermore, operating systems are only supported for so long.
         Ubuntu releases are supported for 5 years, or 10 if you pay for extended support.
         Be prepared to upgrade operating system versions after this period.
+        </p>
+        <p>
         I alluded to the fact that SSH keys are superior to passwords earlier; I truly, truly hope that if you used a password, that you used a very strong one.
-        If you check the output of `/var/log/auth.log` for lines with 'sshd' with a command such as `less`, `cat`, or `grep`, you will see that unauthorized users from around the world have been trying to break into the server since the moment it went online.
+        If you check the contents of the file at `/var/log/auth.log` for lines with 'sshd' with a command such as `less`, `cat`, or `grep`, you will see that unauthorized users from around the world have been trying to break into the server since the moment it went online.
         Don't let them use your server for their own purposes, they don't even pay rent.
         One way that people and bots know to try to log in to your server is by port, by default, sshd runs on port 22.
         This means that bad actors can try connecting to IP addresses on port 22 and spam connection attempts, hoping to get lucky.
@@ -133,10 +141,10 @@
         Note that once you change the port, you must change how you ssh in to the server.
         Use the command <code>ssh -p PORTNUMBER root@IPADDRESS</code> to accomplish this, substituting your port number and ipaddress in.
         To change the port that sshd runs on, run the command <code>nano /etc/ssh/sshd_config</code>. This will open the config file in the text editor nano.
-        Look for a line beginning with a '#', the '#' comments out a line, and commented out lines often function as a type of documentation in config files.
+        Look for a line beginning with a '#' followed by 'Port'. The '#' comments out a line. Commented out lines often function as a type of documentation in config files.
         Delete the '#', and change the port number to a number of your choice between 1024 and 65535.
         Numbers below this range run a higher risk of running into a common port used for other services, but our server isn't currently running too many things that would conflict with our new port.
-        Save the file by pressing and &lt<kbd>Ctrl</kbd> + <kbd>x</kbd>&gt and <kbd>y</kbd>.
+        Save the file by pressing <kbd>&lt<kbd>Ctrl</kbd> + <kbd>x</kbd>&gt</kbd> and <kbd>y</kbd>.
         Now we need to restart the sshd service. Run <code>systemctl restart sshd</code>, and we're all done!
         Remember that you have to always specify the new port when connecting in the future.
         </p>
@@ -178,13 +186,13 @@
         Back to our server! We're ready to install, configure, and run a service that can serve our beloved website to the public!
         We will be using a program called <a href="https://nginx.org/en/">nginx</a> for this purpose.
         Install nginx with <code>sudo apt install nginx</code>.
-        Then, navigate to `/etc/nginx/conf.d`, and create a file, probably named after your domain, ending in `.conf` with <code>nano mydomain.conf</code>.
+        Then, navigate to `/etc/nginx/conf.d`, and create a file, probably named after your domain, ending in `.conf` with <code>sudo nano mydomain.conf</code>.
         Enter in the following information:
         </p>
         <pre>
 server {
     listen       80;
-    server_name  YOUR_DOMAIN_GOES_HERE, www.YOUR_DOMAIN_GOES_HERE;
+    server_name  YOUR_DOMAIN_GOES_HERE www.YOUR_DOMAIN_GOES_HERE;
 
     location / {
         root   /srv/www/;
@@ -213,6 +221,9 @@ server {
         and use them to connect and transfer files to your server with the benefit of a graphical user interface.
         Or, you can use the `scp` program, which sends files over ssh and is already installed on both modern Windows and Linux.
         <code>scp -P YOUR_SSH_PORT PATH_TO_LOCAL_FILES/* USER@DOMAIN:/srv/www</code>
+        If your path has any spaces in it, wrap the path in quotes "C:\My Path".
+        Spaces are best to be avoided in paths, they tend to cause little headaches.
+        This may take a moment to run on Windows.
         Once you have placed your files, go ahead and make sure that nginx is running with your latest changes with <code>sudo systemctl restart nginx</code>.
         Then, try and navigate to your website! If all goes well, and you have an 'index.html' file sitting inside `/srv/www`, your webpage should appear!
         </p>
