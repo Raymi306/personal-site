@@ -110,8 +110,7 @@
         Congratulations, you have logged in!
         If you have never used Linux before, here are some commands and tips to get you oriented:
         </p>
-        <pre>
-`man`: get the manual for a command, type a space and then the name of the command you wish to learn more about
+<pre>`man`: get the manual for a command, type a space and then the name of the command you wish to learn more about
 `pwd`: print working directory
 `ls`: list files in current directory, will output nothing if no files exist
 `cd`: change directory, type a space and then the path you wish to change into
@@ -119,8 +118,7 @@
 To go up one directory, type `cd ..`, to go up two, type `cd ../..`
 Use the up and down arrow keys to browse your command history.
 When typing a command or a path, try hitting the Tab key to autocomplete.
-To stop a running program, press \<Ctrl + C\>
-        </pre>
+To stop a running program, press \<Ctrl + C\></pre>
         <p>
         If you are unfamiliar with directories (AKA folders), or if you want to learn about the differences between directories in Windows and Linux, now may be a good time to do some quick Google searches.
         </p>
@@ -174,7 +172,7 @@ To stop a running program, press \<Ctrl + C\>
         The length, potential popularity, and TLD of the domain that you choose all influence the price, but you can get away with only owing $15 a year.
         Once you have acquired the domain, you must configure it. This is done by editing DNS records.
         The two most important records for our purposes are 'A' records and 'CNAME' records.
-        Set the 'A' record to point to the public IP of your server. Then, set the CNAME record with the subdomain 'www.' to point to your domain.
+        Set the 'A' record to point to the public IP of your server. If it asks for a host, you may put '@'. Then, set the CNAME record with the subdomain 'www.' to point to your domain.
         CNAMES are aliases, so if you change your 'A' record again for any reason, the 'www.' subdomain follows it for you!
         That's about it for domains! Now, you can log in to your server with <code>ssh -p PORTNUMBER USER@DOMAINNAME</code>, and we are ready to start serving things on the web.
         Check out <a href="https://andrew.let-them.cyou/tutorials/basic-dns.html">this link</a> for more information about DNS.
@@ -189,16 +187,14 @@ To stop a running program, press \<Ctrl + C\>
         Then, navigate to `/etc/nginx/conf.d`, and create a file, probably named after your domain, ending in `.conf` with <code>sudo nano mydomain.conf</code>.
         Enter in the following information:
         </p>
-        <pre>
-server {
+<pre>server {
     listen       80;
-    server_name  YOUR_DOMAIN_GOES_HERE www.YOUR_DOMAIN_GOES_HERE;
+    server_name  YOUR_FULL_DOMAIN_GOES_HERE www.YOUR_FULL_DOMAIN_GOES_HERE;
 
     location / {
         root   /srv/www/;
     }
-}
-        </pre>
+}</pre>
         <p>
         This configures nginx to look for requests to your domain on port 80, and to serve files from the location `/srv/www`.
         Next up, we should go ahead and make sure that the path /srv/www actually exists!
