@@ -38,11 +38,17 @@ module.exports = {
 			inject: false,
 			filename: 'tutorials/basic-dns.html',
 		}),
-        new HtmlWebpackPlugin({
+		new HtmlWebpackPlugin({
 			template: './src/tutorials/website-hosting.html',
 			minify: true,
 			inject: false,
 			filename: 'tutorials/website-hosting.html',
+		}),
+		new HtmlWebpackPlugin({
+			template: './src/tutorials/grub-recovery.html',
+			minify: true,
+			inject: false,
+			filename: 'tutorials/grub-recovery.html',
 		}),
 		new MiniCssExtractPlugin({
 			filename: '[name].css',

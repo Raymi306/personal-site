@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang=en>
+	<head>
+		<meta charset=utf-8>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>GRUB Recovery</title>
+		<link rel="icon" href="data:,">
+		<style type='text/css'>
+		html, body {
+			background-color: #553651;
+			color: #fcf6de;
+			margin: 2em;
+			font-family: "helvetica", sans-serif;
+		}
+		body {
+			max-width: 768px;
+			margin: auto;
+		}
+		p {
+			line-height: 2
+		}
+		a:link {
+			color: gold;
+		}
+		a:visited {
+			color: goldenrod;
+		}
+        code, pre, kbd {
+            font-size: 0.95rem;
+            background-color: #220f24;
+            padding: 0.2rem;
+        }
+        code {
+            white-space: nowrap;
+        }
+        pre {
+            overflow-x: scroll;
+            overflow-y: auto;
+        }
+		</style>
+	</head>
+	<body>
+		<a href="https://andrew.let-them.cyou/index.html">Home</a>
+		<br>
+		<h1>How to Recover From a Bad GRUB Configuration</h1>
+		<p>
+		This tutorial uses the following .vdi disk: <a href="https://andrew.let-them.cyou/images/grub-broken.vdi">download here</a>.
+		<br>
+		You may use free software such as VirtualBox or QEMU to load the disk and follow along.
+		In VirtualBox, create a Linux 64 bit VM and select grub-broken.vdi as the virtual harddisk file.
+		It does not need many resources to run, 1 core and 2GB of memory should be more than enough.
+		I would hazard a guess that you could run it with ~512MB of memory in a pinch.
+		</p>
+		<p>Once the VM is running, we find ourselves in the GRUB command line. The first thing we need to do is to explore the layout of our disks</p>
+		<code>ls</code>
+		<p>
+		In our image, we see that we have one disk, hd0, and 3 partitions, 1-3.
+		We now need more information about these partitions. We need to determine
+		which contains the boot partition, and which contains the root filesystem. There is a chance
+		that the same partition contains both.
+		</p>
+		<code>ls (hd0,1)</code>
+		<br>
+		<code>ls (hd0,2)</code>
+		<br>
+		<code>ls (hd0,3)</code>
+		<br>
+		<code>ls (hd0,1)/</code>
+		<br>
+		<code>ls (hd0,3)/</code>
+		<p>
+		When we pass a disk partition combination to <code>ls</code>, we can see some information about the filesystem.
+		We see that partitions 1 and 3 have an ext variant, and partition 2 has no filesystem.
+		It is likely the swap partition.
+		For partitions with file systems, we can explore their contents.
+		We see that partition 1 contains the boot partition, and that partition 3 contains the root filesystem.
+		If you cannot identify either the boot partition or the root filesystem partition, it may be that you need to reimage the system and start from scratch.
+		You can try to use a Linux rescue image to explore further and see if anything is recoverable.
+		<br>
+		We can now set the boot partition:
+		</p>
+		<code>set root=(hd0,1)</code>
+		<p>
+		Our next task will involve configuring our kernel and root filesystem.
+		First, we need a little more information about the filesystem type.
+		We know it is an ext variant, but not which one precisely.
+		We can take advantage of /etc/fstab to get more information:
+		</p>
+		<code>cat (hd0,3)/etc/fstab</code>
+		<p>
+		This shows us that the partition is specifically using ext4.
+		While GRUB can boot some file systems without extra information, ext4 is one filesystem that needs to be manually specified.
+		</p>
+		<code>linux /vmlinuz-virt root=/dev/sda3 rootfstype=ext4</code>
+		<p>Note that we specified sda3 here, which corresponds to first disk 3rd partition.  You may also specify with a UUID:</p>
+		<code>root=UUID=xxxx</code>
+		<p>
+		All that remains is to specify our initial RAM disk.
+		Examining the files in our boot partition, initramfs-virt looks like the best match here:
+		</p>
+		<code>initrd /initramfs-virt</code>
+		<p>If everything has gone according to plan, we should be ready to boot!</p>
+		<code>boot</code>
+		<p>
+		This image has one user, root, with no password. If you get a login prompt, you're golden!
+		To fix GRUB, you can uninstall and reinstall it:
+		</p>
+		<code>apk del grub grub-bios</code>
+		<br>
+		<code>apk add grub grub-bios</code>
+		<br>
+		<code>grub-install</code>
+		<br>
+		<code>grub-mkconfig -o /boot/grub/grub.cfg</code>
+		<p>
+		Note that this is an Alpine Linux image, on distributions with different package managers, you will have to adapt the command and targets accordingly.
+		</p>
+		<p>
+		To summarize, when you are in the GRUB shell, you should first determine your disk layout and the contents of the filesystem.
+		This is to support 3 boot prerequisites: setting the boot partition, setting the linux kernel and root filesystem, and setting the initial RAM disk.
+		Once these prerequisites are met, you should be ready to boot.
+		</p>
+	</body>
+</html>
