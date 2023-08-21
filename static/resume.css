@@ -1,0 +1,80 @@
+html, body {
+	background-color: #553651;
+	color: #fcf6de;
+	font-family: "Helvetica", sans-serif;
+	font-size: 1.1em;
+}
+
+body {
+	max-width: 850px;
+	margin: auto;
+}
+
+.inner-body {
+	background-color: #220f24;
+	padding: 2em;
+}
+
+p {
+	line-height: 2;
+}
+
+a:link {
+	color: gold;
+}
+
+a:visited {
+	color: goldenrod;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+li {
+	padding: 0.3em;
+	margin: 0.5em;
+}
+
+li>b {
+	font-weight: bold;
+	margin-right: 1em;
+}
+
+li:nth-child(odd) {
+	background: #352433;
+}
+
+h1, h2, h4, li>b {
+	color: #60e84c;
+}
+
+h1, h3 {
+	font-weight: bold;
+	margin: 0;
+}
+
+.header {
+	margin: 2em 0 2em 2em;
+}
+
+h4 {
+	margin: 2em 0 0.5em 0;
+}
+
+.job-dates {
+	font-weight: lighter;
+	font-size: 0.9rem;
+	color: #fcf6de
+}
+
+.reduced {
+    font-size: 1rem;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

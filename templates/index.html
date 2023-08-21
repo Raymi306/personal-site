@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block meta %}
+<meta name="description" content="The personal page of Andrew Langmeier. Here resides my resume and tutorials that I write on various web and programming topics">
+<meta name="keywords" content="Andrew Langmeier, Andrew, python, python3, tutorials, programming, web design">
+<title>Andrew Langmeier</title>
+<link rel="stylesheet" href="/index.css">
+<script defer src="/index.js"></script>
+{% endblock %}
+
+{% block body %}
+<!--noindex-->
+<!--googleoff: index-->
+<div data-nosnippet aria-hidden=true class='maze robots-nocontent' id='maze'>
+	<noscript>This looks much more interesting with javascript enabled</noscript>
+</div>
+<!--/noindex-->
+<!--googleon: index-->
+<div class='grid-wrapper'>
+	<div class='header porple'><h1>Andrew Langmeier</h1></div>
+	<div class='body'>
+	</div>
+	<div class='body-bottom-left'>
+	</div>
+	<div class='nav-side porple'>
+		<h3>Tutorials</h3>
+		<ul class='indent-1'>
+			<li>
+				<a href="https://andrew.let-them.cyou/tutorials/python">
+					Python
+				</a>
+			</li>
+			<li>
+				<a href="{{ get_url(path='@/tutorials/_index.md') }}">
+					Other
+				</a>
+			</li>
+		</ul>
+		<hr/>
+		<ul class='indent-0, no-margin-top-when-small'>
+			<li>
+				<a href="{{ get_url(path='@/about.md') }}">
+					About Page
+				</a>
+			</li>
+			<li>
+				<a href="{{ get_url(path='@/resume.md') }}">
+					Resume
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class='footer porple'>
+		<span>
+			<a rel="noopener external" target="_blank" href="http://mazeletter.xyz">Background Font</a>
+		</span>
+		<span>
+			<button id='draw-button'>
+				Redraw Background
+			</button>
+		</span>
+		<span class='hide-when-small'>2023</span>
+	</div>
+</div>
+{% endblock %}

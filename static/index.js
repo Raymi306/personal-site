@@ -1,11 +1,9 @@
-import './style.css';
-import 'assets/mazeletter-metropolis.woff2';
-
 function getRandomAsciiChar() {
 	const code = Math.floor(Math.random() * 93) + 33;
 	const character = String.fromCharCode(code);
 	return character;
 }
+
 function getRandomAsciiChars(num) {
 	const buf = [];
 	for (let i = 0; i < num; i++) {
@@ -13,6 +11,7 @@ function getRandomAsciiChars(num) {
 	}
 	return buf;
 }
+
 function getMazeRow(numCharGuess, screenMax, ctx) {
 	const buf = getRandomAsciiChars(numCharGuess);
 	while (ctx.measureText(buf.join('')).width < screenMax) {
@@ -25,6 +24,7 @@ function getMazeRow(numCharGuess, screenMax, ctx) {
 		'row': buf.join(''),
 	};
 }
+
 function getMaze(screenMax, ctx) {
 	const buf = [];
 	let numCharGuess = 0;
@@ -45,6 +45,7 @@ function getMaze(screenMax, ctx) {
 	}
 	return buf.join('');
 }
+
 function setup() {
 	const dpr = window.devicePixelRatio;
 	const w = Math.ceil(window.screen.width);
@@ -61,10 +62,12 @@ function setup() {
 	maze.style.fontSize = fontSize + 'em';
 	return {screenMax, ctx, maze, canvas};
 }
+
 function draw(context) {
 	context.maze.innerText = getMaze(context.screenMax, context.ctx);
 
 }
+
 const context = setup();
 draw(context);
 document.getElementById('draw-button').addEventListener('click', () => {draw(context)});

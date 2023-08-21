@@ -9,3 +9,7 @@ Build and deployment managed with npm run scripts defined in package.json
 
 ## Screenshot:
 ![image](https://user-images.githubusercontent.com/45133114/155060240-41888134-72ab-4516-a170-4f473c33c12f.png)
+
+## Asset Info
+### mazeletter-metropolis.woff2
+Fathom Information Design ([src](http://mazeletter.xyz/))

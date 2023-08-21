@@ -19,7 +19,7 @@
 }
 @font-face {
 	font-family: "maze";
-	src:  url("assets/mazeletter-metropolis.woff2") format("woff2");
+	src:  url("/mazeletter-metropolis.woff2") format("woff2");
 }
 html, body {
 	color: var(--gold-5);
