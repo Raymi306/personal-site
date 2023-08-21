@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block meta %}
+<meta name="description" content="Tutorials on a variety of technology-focused topics">
+<title>Tutorials</title>
+<link rel="stylesheet" href="/page.css">
+{% endblock %}
+
+{% block body %}
+<a href="{{ get_url(path='') }}">Home</a>
+<ul>
+  {% for page in section.pages -%}
+  <li>
+	  <a href="{{ page.path }}">{{ page.title }}</a>
+  </li>
+  {%- endfor %}
+</ul>
+{% endblock %}

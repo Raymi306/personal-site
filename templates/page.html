@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block meta %}
+<meta name="description" content="{{page.description}}">
+<title>{{page.title}}</title>
+<link rel="stylesheet" href="/page.css">
+{% endblock %}
+
+{% block body %}
+<a href="{{ get_url(path='') }}">Home</a>
+{% block top %}
+{% endblock %}
+<br>
+{{ page.content | safe }}
+{% endblock %}
