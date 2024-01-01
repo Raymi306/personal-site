@@ -59,7 +59,9 @@
 				Redraw Background
 			</button>
 		</span>
-		<span class='hide-when-small'>2023</span>
+		<span class='hide-when-small'>
+			Generated {{ now(utc=true) | date(format="%Y") }}
+		</span>
 	</div>
 </div>
 {% endblock %}
