@@ -26,7 +26,7 @@ This control will result in the gaining of some valuable sysadmin skills and a d
 
 A quick note on performance:
 Even a cheap, weak server can easily host a multitude of low-traffic websites while performing other tasks, such as VPN tunneling or file hosting.
-Note that some may prefer the dashboard views some managed services provide when it comes to maintaining many websites, and some managed services promise extremely high capacity for web traffic and fast access times.
+Some may prefer the dashboard views some managed services provide when it comes to maintaining many websites, and some managed services promise extremely high capacity for web traffic and fast access times.
 
 ---
 ## The Server
