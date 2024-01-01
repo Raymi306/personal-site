@@ -2,25 +2,52 @@
 title="Website Hosting"
 +++
 
-# How to Host a Website in 2023
+# How to Host a Website
 ## Overview
 ---
 
-This tutorial will explain how to host a static webpage in the cloud.
+This tutorial will explain how to host a static webpage on a server.
 A static webpage is a webpage that does not have a backend component.
 A backend for a website may consist of things such as code and databases to allow the website to retrieve data and act in a dynamic way.
 The website that we will be serving should consist of at least one HTML file, optional CSS files, and other resources such as images.
 This tutorial will focus on hosting rather than building the website.
+If you wish to host a backend in the future, you will have a solid base with which to do so, as you can easily add functionality to your server.
 
 ---
-## Server
+## Other Options
 ---
-*Cost: $4 per month.*
+If you desire low maintenance hosting or only need one or two websites, many cloud providers offer a convenient static website hosting service.
+A few examples of such platforms include [GitHub Pages](https://pages.github.com/), [Netlify](https://www.netlify.com/), and [Cloudflare Pages](https://pages.cloudflare.com/).
+Prices can start as low as free, and typically scale depending on how many separate websites you need or how much traffic your site needs to sustain.
+Depending on the platform that you choose, you may be limited in what methods of deploying your website are supported.
+Hosting websites on your own server requires more maintenance and initial setup.
+This tradeoff's primary benefit revolves around control.
+This control will result in the gaining of some valuable sysadmin skills and a deeper understanding of how things work.
+
+A quick note on performance:
+Even a cheap, weak server can easily host a multitude of low-traffic websites while performing other tasks, such as VPN tunneling or file hosting.
+Note that some may prefer the dashboard views some managed services provide when it comes to maintaining many websites, and some managed services promise extremely high capacity for web traffic and fast access times.
+
+---
+## The Server
+---
+*Cost: $4+ per month.*
 
 For our purposes, a server is a computer with a public IP address that can store the files for your website and present them to the world.
 We will be using [Digital Ocean](https://www.digitalocean.com/) to rent a Virtual Private Server, or VPS.
 A VPS, as its name implies, is not a physical computer.
 A physical computer lies behind the scenes, and is shared by way of virtual machines that allow for the resources of the physical computer to be split and distributed to different users.
+
+Why are we renting a VPS instead of using a spare computer?
+Well, using a spare computer is a perfectly valid option, but it comes with several complications.
+The main complication has to do with IP addresses.
+IP addresses are how computers find other computers on the internet, and in the case of the still ubiquitous version 4 IP address, there are not enough to go around.
+This means that your computer is not directly exposed to the internet with a unique address.
+Instead, your internet service provider allocates a unique address only for your router.
+All devices connected to the router then have a private address, and reach out to the internet through the router.
+As an additional complication, for most service plans, you are not guaranteed a static IP address.
+Your ISP can change the address at any time, meaning that other computers looking to find you will have a hard time.
+This can be solved with a combination of two things, port forwarding and dynamic DNS, but these concepts are out of scope for this article.
 
 Create an account with Digital Ocean.
 Then look for the 'Create' dropdown, and select 'Droplets'.
@@ -35,22 +62,11 @@ For the size, the cheapest option will be "Shared CPU", which should already be 
 For CPU options, switch to a regular SSD, and scroll the options to the left to unveil a $4/month option.
 For simplicity's sake, change the authentication method to password. You can always change it to SSH key authentication later,
 but setting up SSH authentication is out of scope for this tutorial.
-SSH authentication is a more secure authentication method, and overachievers may be interested in Digital Ocean's tutorial.
+SSH authentication is a more secure authentication method, and overachievers may be interested in [Digital Ocean's tutorial](https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server).
 Feel free to diverge here and explore the SSH key route, especially if you have some Unix experience already.
 Enable monitoring in the extra options section, then scroll to the bottom where it says 'Finalize Details'.
 You can leave the hostname as is, or name the droplet something memorable.
 When all done, click create droplet, wait a few moments, and you have your very own server to play with!
-
-Why are we renting a VPS instead of using a spare computer?
-Well, using a spare computer is a perfectly valid option, but it comes with several complications.
-The main complication has to do with IP addresses.
-IP addresses are how computers find other computers on the internet, and in the case of the still ubiquitous version 4 IP address, there are not enough to go around.
-This means that your computer is not directly exposed to the internet with a unique address.
-Instead, your internet service provider allocates a unique address only for your router.
-All devices connected to the router then have a private address, and reach out to the internet through the router.
-As an additional complication, for most service plans, you are not guaranteed a static IP address.
-Your ISP can change the address at any time, meaning that other computers looking to find you will have a hard time.
-This can be solved with a combination of two things, port forwarding and dynamic DNS, but these concepts are out of scope for this article.
 
 Now that your server is running, you have a few options for logging in to it.
 You may use the Digital Ocean dashboard or a terminal on your computer.
@@ -168,7 +184,7 @@ Follow the prompts from certbot, selecting your domain both with and without the
 Certbot will edit your configuration file in `/etc/nginx/conf.d` for you, and bam, you have SSL configured and ready to go!
 
 We are finally ready to place our website files on the server! There are several options for this.
-You can download a program such as [WinSCP](https://winscp.net/eng/index.php) or [Filezilla](https://filezilla-project.org/),
+You can download a program such as [WinSCP](https://winscp.net/eng/index.php), [rsync](https://rsync.samba.org/), or [Filezilla](https://filezilla-project.org/),
 and use them to connect and transfer files to your server with the benefit of a graphical user interface.
 Or, you can use the `scp` program, which sends files over ssh and is already installed on both modern Windows and Linux.
 
