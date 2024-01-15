@@ -1,13 +1,17 @@
 html, body {
 	background-color: #553651;
 	color: #fcf6de;
-	margin: 2em;
+	margin: 0.3em;
 	font-family: "helvetica", sans-serif;
+    overflow-x: hidden;
 }
 
 body {
 	max-width: 768px;
-	margin: auto;
+}
+
+@media (max-width: 768px) {
+    margin: 2em;
 }
 
 p {
@@ -15,11 +19,11 @@ p {
 }
 
 a:link {
-	color: goldenrod;
+	color: gold;
 }
 
 a:visited {
-	color: gold;
+	color: goldenrod;
 }
 
 li {
