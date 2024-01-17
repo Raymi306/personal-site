@@ -1,5 +1,4 @@
 # Personal Site
-Build and deployment managed with npm run scripts defined in package.json
 
 [live page](https://andrew.let-them.cyou)
 
