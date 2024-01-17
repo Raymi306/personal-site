@@ -1,17 +1,16 @@
 html, body {
-	background-color: #553651;
+	max-width: 768px;
+	background-color: #473845;
 	color: #fcf6de;
-	margin: 0.3em;
+	margin: 0.7rem auto;
 	font-family: "helvetica", sans-serif;
     overflow-x: hidden;
 }
 
-body {
-	max-width: 768px;
-}
-
 @media (max-width: 768px) {
-    margin: 2em;
+    html, body {
+        margin: 0.7rem;
+    }
 }
 
 p {
@@ -26,17 +25,27 @@ a:visited {
 	color: goldenrod;
 }
 
+.toc {
+    margin-top: 2rem;
+}
+
+ul {
+    width: fit-content;
+}
+
 li {
+    width: fit-content;
 	margin-bottom: 0.7rem;
 }
 
 pre, code {
   font-family: monospace, monospace;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 pre {
   padding: 1rem;
   overflow: auto;
+  border-radius: 5px;
 }
 // The line numbers already provide some kind of left/right padding
 pre[data-linenos] {
@@ -61,9 +70,9 @@ pre table {
   border-collapse: collapse;
 }
 
-p > code {
+p > code, li > code {
   padding: 0.3rem;
   white-space: pre-wrap;
-  background-color: #fdf6e3;
-  color: #657b83;
+  background-color: #282828;
+  color: #fdf4c1;
 }

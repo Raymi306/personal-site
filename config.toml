@@ -7,11 +7,13 @@ compile_sass = false
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
+ignored_content = ["*/codeblocks.json", "*/hideme/*"]
+
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
-highlight_theme = "solarized-light"
+highlight_theme = "gruvbox-dark"
 
 [extra]
 # Put all your custom variables here

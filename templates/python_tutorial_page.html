@@ -1,0 +1,44 @@
+{% extends "page.html" %}
+
+{% macro nav() %}
+{% if page.extra is defined and page.extra is containing("prev") %}
+<a href="{{ get_url(path=page.extra['prev']) }}">&lt prev</a>
+|
+{% endif %}
+<a href="{{ get_url(path='@/tutorials/python/_index.md') }}">index</a>
+{% if page.extra is defined and page.extra is containing("next") %}
+|
+<a href="{{ get_url(path=page.extra['next']) }}">next &gt</a>
+{% endif %}
+{% endmacro %}
+
+{% block top %}
+{{ self::nav() }}
+{% if page.toc and page.toc[0].children | length > 1 %}
+    <ul class="toc">
+    {% for h1 in page.toc %}
+        {% if h1.children %}
+            {% for h2 in h1.children %}
+                <li>
+                    <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+                </li>
+                {% if h2.children %}
+                    {% for h3 in h2.children %}
+                        <ul>
+                            <li>
+                                <a href="{{ h3.permalink | safe }}">{{ h3.title }}</a>
+                            </li>
+                        </ul>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}
+
+{% block bottom %}
+<hr>
+{{ self::nav() }}
+{% endblock %}

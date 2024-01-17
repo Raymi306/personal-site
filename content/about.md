@@ -4,18 +4,19 @@ description="Information about the creation of this website"
 +++
 
 # About
-This website is hosted in Digital Ocean on Ubuntu, using nginx to serve files.
+This website is hosted in Digital Ocean on Ubuntu with nginx.
 
 DNS is also managed through Digital Ocean, and purchased through namecheap.
 
-Featuring TLS1.3 for security, HTTP2 Push for fast initial page load, and whichever styling and JavaScript features catch my eye.
+Featuring HTTP2 Push for fast initial page load and whichever styling and JavaScript features catch my eye.
 
 CSS grid is being used mostly as a learning exercise.
 
 Paletton was used for creating the main page's color scheme.
 The background is actually random text generated in JavaScript, rendered with a special tiling font from [mazeletter.xyz](http://mazeletter.xyz).
+I am using [gruvbox-dark](https://github.com/morhetz/gruvbox) for code highlighting.
 
-zola and rsync are used for content management / site generation and deployment respectively.
+[zola](https://www.getzola.org/) and rsync are used for content management / site generation and deployment respectively.
 
 The tutorial features dead link detection and full unittests on all code samples.
 No more tutorials with code samples that don't do what they say on the box! In theory, anyway...

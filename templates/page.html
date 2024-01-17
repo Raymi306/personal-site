@@ -7,8 +7,8 @@
 {% endblock %}
 
 {% block body %}
-<a href="{{ get_url(path='') }}">Home</a>
 {% block top %}
+<a href="{{ get_url(path='') }}">Home</a>
 {% endblock %}
 <br>
 {{ page.content | safe }}
