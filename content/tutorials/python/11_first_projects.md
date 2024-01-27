@@ -24,17 +24,16 @@ Make sure to read the documentation for a full overview of the capabilities of t
 
 ## Making a game
 
-You should have the tools to make yourself a guessing game now. You may want to give it a go yourself, and then compare it to the sample below:
+You should have the tools to make a guessing game now.
+You may want to give it a go yourself first, and then compare it to the sample below:
 
 {{ codeblock(fn="guessing_game", lc="py") }}
 
 ## Command Line Arguments
 
 You can use command line arguments to pass values into a program when it starts.
-
 This is similar to passing an argument into a function.
-
-Assuming your program is called hello.py,
+Assuming your program is called hello.py:
 
 ```
 python3 hello.py foobarbaz
@@ -67,6 +66,7 @@ By default, files get opened in text mode.
 You can add a 'b' to the end of the mode to open them in binary mode.
 You might open a file in binary mode if it is an image file or other special format to gain more direct access to the underlying bits and bytes without the assumptions that text mode makes.
 To learn more about reading and writing files, check out the [official documentation](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files).
+
 ## More about imports; Working with dependencies; Exploring the web
 
 Every file is its own module as well!
@@ -74,6 +74,7 @@ If you have two python files, named 'example\_a.py' and 'example\_b.py' that are
 {{ codeblock(fn="imports_1", lc="py") }}
 
 ### Downloading packages from the Python Package Index (PyPI)
+
 pip is the tool used to install packages from online.
 It should have come with your Python installation.
 It's a good idea to keep pip up to date, you can use the below command for this.
@@ -89,6 +90,7 @@ sudo apt install python3-pip
 ```
 
 ### Managing dependencies and versions
+
 If you install a package with pip, that version is likely to end up available for ALL of your python projects on your computer.
 This can cause conflicts and confusion, particularly if you ever need to have projects using different versions of things.
 For this reason, we create a virtual environment for each python project.
@@ -107,36 +109,48 @@ See [this link](https://docs.python.org/3/library/venv.html#how-venvs-work) for 
 
 If you are on Linux and find that you do not have access to the venv module, you can install it with your system's package manager.
 An example using Aptitude is below:
+
 ```sh
 sudo apt install python3-venv
 ```
 
 ### Browsing the web with the requests package
+
 Let's use a package from PyPI! 
 Our first step is optional, but strongly recommended.
 First, create a virtual environment and enable it.
+
 ```sh
 python3 -m venv venv
 source venv/bin/activate
 ```
+
 Then run:
+
 ```sh
 pip install requests
 ```
+
 Now, when your Python programs run inside of the virtual environment they can `import requests` and make use of the tools in this library.
 [Check out the documentation](https://docs.python-requests.org/en/latest/index.html) for the library to get a feel for all of the things you can do with it!
 Let's look at the contents of a website:
+
 {{ codeblock(fn="requests_demo", lc="py") }}
+
 The body of the response for this webpage is in HTML.
 This website is fairly simple, with only a few elements in its body.
 Getting the raw HTML of a page isn't immediately useful to us; how do we make sense of it?
 Let's pull in [another library](https://beautiful-soup-4.readthedocs.io/en/latest/#)!
+
 ```sh
 pip install beautifulsoup4
 ```
+
 {{ codeblock(fn="soup_demo", lc="py") }}
+
 On HTML pages, important information is often stored in header elements.
-Header elements are numbered and their tag is "hn", with n being a number. Lower numbers are more important, with 1 being most imporant.
+Header elements are numbered and their tag is "hn", with n being a number.
+Lower numbers are more important, with 1 being most imporant.
 With a little bit of study into how HTML is structured, you can use different HTML tags and information inside the tags such as classes and ids to extract any information you want out of a website!
 Using your browser's developer tools can be helpful here.
 On most desktop browsers, you can open the developer tools by hitting F12.

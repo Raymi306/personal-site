@@ -12,6 +12,7 @@ Let's explore two built-in tools provided to us by Python, `print` and `input`.
 ---
 ## <built-in function print\>
 ---
+
 We can use `print` to print text to the screen.
 It can be used in the following way:
 
@@ -34,7 +35,7 @@ Overall, Python makes the classic 'Hello world' programming tutorial very simple
 
 At this point I wish to reiterate something, as I find it to be a common problem for beginners.
 
-If you type anything in Python, it MUST be defined, otherwise you will get an error.
+If you type anything in Python, **it MUST be defined**, otherwise you will get an error.
 
 Some things are a keyword or are built-in to Python and start out defined. Other things, you will define yourself. Try not to confuse strings with syntactic elements of the language. "Dog" has meaning as a string, or textual data. `Dog` has none, unless you define Dog.
 
