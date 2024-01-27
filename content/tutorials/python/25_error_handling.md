@@ -226,6 +226,7 @@ def func(num):
 ## Create Your Own Exception
 
 While Python provides [a large list of built-in Exceptions](https://docs.python.org/3/library/exceptions.html#concrete-exceptions), it can be useful to create your own.
+This is accomplished with [classes](@/tutorials/python/23_classes.md)
 This allows one to narrow down to just your specific exception in exception handling code.
 If your exception is related to an existing one, you may inherit from it.  Otherwise, inheriting from "Exception" is usually a good choice.
 You can create your own hierarchy of errors by creating one that inherits from "Exception", and then inheriting from that in turn.

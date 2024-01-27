@@ -85,10 +85,11 @@ With programming, there are often multiple approaches to a problem that are effe
 
 {{ codeblock(fn="input_and_print_double_v4", lc="py") }}
 
-These snippets all properly double whatever number we type in! `int` is being used here to interpret the result of input as an integer; a whole number.
+These snippets all properly double whatever number we type in!
+`int` is being used here to interpret the result of input as an integer; a whole number.
 Note that it spits out an error message if you try giving it something that isn't a number!
 Error messages tend to contain useful information for improving our programs when things go wrong, and sometimes we don't want them to end our program.
-We will discuss error handling later, although an example is included below.
+We will discuss [error handling](@/tutorials/python/25_error_handling.md) later, although an example is included below.
 
 {{ codeblock(fn="futures_try_int_input", lc="py") }}
 
