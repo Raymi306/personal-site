@@ -1,5 +1,7 @@
 +++
 title="Error Handling"
+[extra]
+prev="@/tutorials/python/24_linter.md"
 +++
 
 *work in progress*
@@ -22,7 +24,7 @@ For what values will x work?
 You can try calling the function with a few:
 ```
 >>> delta(1)
-1
+1.0
 >>> delta(2)
 0.5
 >>> delta(-2)
@@ -91,7 +93,7 @@ To do this, we will use the try...except key words.
 try:
     result = delta(0)
 except:
-    print("That didn't work, lets carry on and try something else")
+    print("That didn't work, let's carry on and try something else")
 ```
 
 Above we have a bare except:  This will catch ANY error, and is awfully broad.
@@ -137,7 +139,7 @@ else:
 
 ### finally...
 
-A common pattern is to need to clean things up regardless of if something fails or succeeds.
+A common pattern is to need to clean things up regardless if something fails or succeeds.
 You can accomplish this with the "finally" keyword.
 
 ```py
@@ -197,7 +199,7 @@ finally:
     cleanup()
 ```
 
-This isn't a hard and fast rule, sometimes, it ends up being cleaner to have many statements in the try block and to sort it out with one or more except blocks.
+This isn't a hard and fast rule. Sometimes, it ends up being cleaner to have many statements in the try block and to sort it out with one or more except blocks.
 
 ## Raise Your Own Exceptions
 
