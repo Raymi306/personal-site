@@ -2,6 +2,7 @@
 title="Linting"
 [extra]
 prev="@/tutorials/python/23_classes.md"
+next="@/tutorials/python/25_error_handling.md"
 +++
 
 # Style and Early Error Detection
