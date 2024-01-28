@@ -59,7 +59,7 @@ Note that on the line with `print` there is a space in front!
 - Save the file, remembering the name that you choose to give it
 - Open a command prompt
 - Optionally, [navigate](@/tutorials/python/misc.md#shell-navigation) to the directory that your file resides in
-- Type in the name of your python program followed by the [path to your code file](@/tutorials/python/misc.md#files-and-file-paths):
+- Type in the name of your Python program followed by the [path to your code file](@/tutorials/python/misc.md#files-and-file-paths):
 
 ```
 python3 helloworld.py

@@ -4,7 +4,7 @@ title="Additional Resources"
 
 # Additional Resources
 ## Al Sweigart's Automate the Boring Stuff
-[A famous resource for beginner python programmers](https://automatetheboringstuff.com/), this book presents its tutorial
+[A famous resource for beginner Python programmers](https://automatetheboringstuff.com/), this book presents its tutorial
 with the clear end goal of being able to automate real, often tedious, tasks.
 It is available free to read online and there are a variety of ways to purchase the book to support the author.
 The book touches on tasks such as organizing files, web scraping, working with spreadsheets,

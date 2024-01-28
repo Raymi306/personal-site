@@ -41,7 +41,7 @@ In the help, if a command is listed with parentheses such as "w(here)", you may 
 "help" also lists all valid abbreviations.
 
 ## What's going on?
-Inside the debugger, you can type any python expression and it will attempt to evalulate it in the same way the interpreter might.
+Inside the debugger, you can type any Python expression and it will attempt to evalulate it in the same way the interpreter might.
 If you type "p" followed by a variable name and hit enter, you can see the current value.
 You may omit the "p" if the variable name does not collide with a pdb command.
 "pp" will pretty print the value, which sometimes makes reading collections and nested data structures easier on the eyes.

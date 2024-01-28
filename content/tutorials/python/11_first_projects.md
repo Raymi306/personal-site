@@ -70,7 +70,7 @@ To learn more about reading and writing files, check out the [official documenta
 ## More about imports; Working with dependencies; Exploring the web
 
 Every file is its own module as well!
-If you have two python files, named 'example\_a.py' and 'example\_b.py' that are in the same directory, example\_a.py can use code written in the other file:
+If you have two Python files, named 'example\_a.py' and 'example\_b.py' that are in the same directory, example\_a.py can use code written in the other file:
 {{ codeblock(fn="imports_1", lc="py") }}
 
 ### Downloading packages from the Python Package Index (PyPI)
@@ -91,9 +91,9 @@ sudo apt install python3-pip
 
 ### Managing dependencies and versions
 
-If you install a package with pip, that version is likely to end up available for ALL of your python projects on your computer.
+If you install a package with pip, that version is likely to end up available for ALL of your Python projects on your computer.
 This can cause conflicts and confusion, particularly if you ever need to have projects using different versions of things.
-For this reason, we create a virtual environment for each python project.
+For this reason, we create a virtual environment for each Python project.
 A virtual environment stores our downloaded packages and keeps them isolated.
 
 When we want to run our project, we must make sure the virtual environment is activated.
