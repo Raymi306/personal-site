@@ -37,11 +37,13 @@ At this point I wish to reiterate something, as I find it to be a common problem
 
 If you type anything in Python, **it MUST be defined**, otherwise you will get an error.
 
-Some things are a keyword or are built-in to Python and start out defined. Other things, you will define yourself. Try not to confuse strings with syntactic elements of the language. "Dog" has meaning as a string, or textual data. `Dog` has none, unless you define Dog.
+Some things are a keyword or are built-in to Python and start out defined. Other things, you will define yourself. Try not to confuse strings with syntactic elements of the language.
+`"Dog"` has meaning as a string, or textual data. `Dog` has none, unless you define Dog.
 
 ---
 ## <built-in function input\>
 ---
+
 `input` is also a function, and rather than displaying text TO the user, it waits for text FROM the user, that can then be used inside of the program.
 When input is called, it waits for the user to hit the enter button.
 When the user hits the enter button, any keys that they have pressed will be saved as a string, and 'returned' by input.
@@ -50,7 +52,6 @@ When the user hits the enter button, any keys that they have pressed will be sav
 
 By itself, input is rather boring as it doesn't appear to do much; We give the program text, and it immediately discards it.
 What we need is a way to store the text for later, so that we can manipulate it in some other way.
-
 
 {{ codeblock(fn="input_and_print", lc="py") }}
 
@@ -65,9 +66,8 @@ Generally speaking, a variable's label, or name, can have any character from a-z
 The underscore character '\_' is commonly used in lieu of spaces, which are not allowed in variable names.
 So what do we do with our newly defined variable?
 We print the data that it references, the very same string that we typed into `input`, and prepend 'You typed: ' in front.
-Note that python is quite clever, and understands that the plus operator, when used with 2 strings, should smoosh these strings together, or concatenate them.
+Note that Python is quite clever, and understands that the plus operator, when used with 2 strings, should smoosh these strings together, or concatenate them.
 Note also that we must specify that we want a space in 'You typed: '; Python won't do things like that implicitly.
-
 
 `input` always returns what we type as a string, but sometimes we would like to interpret the value as a number so we can do fun things like maths.
 
@@ -90,14 +90,14 @@ These snippets all properly double whatever number we type in!
 `int` is being used here to interpret the result of input as an integer; a whole number.
 Note that it spits out an error message if you try giving it something that isn't a number!
 Error messages tend to contain useful information for improving our programs when things go wrong, and sometimes we don't want them to end our program.
-We will discuss [error handling](@/tutorials/python/25_error_handling.md) later, although an example is included below.
+We will discuss error handling [later](@/tutorials/python/25_error_handling.md), although an example is included below.
 
 {{ codeblock(fn="futures_try_int_input", lc="py") }}
 
 ---
 ## A Few Steps Back...Using help()
 ---
-Go ahead and drop into the python interpreter. Type `help()` and then press enter.
+Go ahead and drop into the Python interpreter. Type `help()` and then press enter.
 Now, go ahead and enter `print`, and you should see something like this:
 
 ```
@@ -134,28 +134,51 @@ When you are ready to leave, hit `q`
 You can also ask for help on other things, when inside interactive help, try typing one of: `modules, keywords, symbols, topics`.
 Then, try entering one of the entries within into the help.
 Many of the topics go quite in depth, and should match the official documentation online for your version of Python.
-You can also get help outside of interactive help mode by using help as a function, and passing either a string with what you need help on (as listed in modules, keywords, etc), or a python object.
+You can also get help outside of interactive help mode by using help as a function, and passing either a string with what you need help on (as listed in modules, keywords, etc), or a Python object.
 I believe `help` to be an underutilized and underappreciated feature of Python that can help programmers of any skill level.
 
 ## Conditions and Branching
+
 Reacting the same way to every possible input is boring.
 Let's take a different action, depending on what the user types
 
 {{ codeblock(fn="conditions_names", lc="py") }}
 
 Several things are going on here. 
-We are using some fancy new keywords, if, elif (pythonese for else if), and else.
+We are using some fancy new keywords, if, elif (Pythonese for else if), and else.
 
 After our `if` keyword, we put a conditional statement.
-We're interested to know whether or not something is true. In this case, we are doing a comparison using `==`.
-Note that when we want to check for equality, we use TWO equal signs. One equal sign is for assigning variables!
-So, if the user puts their name as 'max', we take a special action, and print out 'Weirdo'.
-If it isn't max, we check to see if it is 'jax'.
-If it is, we print 'Cool name!'. Otherwise, we print out 'Hello, ' and their input.
+We're interested to know whether or not something is true.
+In this case, we are doing a comparison using `==`.
+Note that when we want to check for equality, we use TWO equal signs.
+One equal sign is for assigning variables!
+So, if the user puts their name as 'Joshua', we take a special action, and print out: 'Hello.  Would you like to play a game?'.
+If it isn't Joshua, we check to see if it is 'Dave'.
+If it is, we print something different, this time: "I'm sorry, Dave. I'm afraid I still can't open the podbay doors".
+Otherwise, we print out 'Hello, ' and their input.
 
 Note that after our conditions, or after the 'else' keyword, we MUST put a colon `:`.
 Furthermore, on the next line, we must indent.
-If you have multiple lines indented to the same level, they will all execute if that branch is taken, e.g.:
+
+When checking for string equality, if you are not worried about case sensitivity, you can use the string method "lower" or "upper" to force the string to all lower or all upper case respectively:
+
+```py
+name = input().lower()
+
+# OR
+
+name = input()
+lowercase_name = name.lower()
+```
+
+This can simplify your checks with the string.
+We haven't talked about methods yet and only briefly discussed functions and mentioned in passing objects.
+Methods are functions that are part of an object, and they are called be putting a period after a string, the method name, and then parentheses with any arguments inside.
+Strings have many useful methods that you can easily explore with `help(str)`.
+For now, ignore the methods starting and ending with two underscores.
+If you wish to learn more about objects and methods, including those with the double underscores, there is a [later article](@/tutorials/python/23_classes.md) discussing them, but knowledge of them isn't critical for the rest of this tutorial page.
+
+If you have multiple lines indented to the same level, they will all execute if that branch is taken:
 
 {{ codeblock(fn="conditions_indent", lc="py") }}
 
@@ -176,6 +199,7 @@ If you want to check for a condition that is False, negating the condition would
 Finally, if you wish to check that two items are not equal, you can use `!=`.
 
 ## Repetition, Looping
+
 Generally, code executes line by line, starting at the top and continuing to the bottom.
 If we want to do the same thing more than once, repeating yourself is clumsy and hard to read.
 We program to be lazy; a good mantra is DRY: Don't Repeat Yourself!
@@ -213,6 +237,7 @@ We also have a different approach for a conditional that wishes to check equalit
 In this case, we ask if the number is within a set of other numbers.
 
 ## Collections
+
 ### Creating collections
 
 {{ codeblock(fn="collections_instantiations", lc="py") }}
@@ -233,7 +258,8 @@ Sets are incredibly useful when it comes to checking if something exists or not 
 Tuples are similar to lists, but they are immutable.
 You cannot add or remove items from a tuple once it is created.
 All of these collections have helper functions for performing common tasks.
-Try calling
+Try calling:
+
 ```py
 help(list)
 help(dict)
@@ -241,12 +267,17 @@ help(tuple)
 help(set)
 help(str)
 ```
+
 to learn about the many options these collections provide.
 Strings can also be indexed and iterated over in a manner similar to a tuple or list, allowing you to access individual characters.
 Strings, like tuples, are immutable.
 Here, we also catch a glimpse of for loops. This syntax allows us to conveniently loop through each item in a collection.
+
 ## Functions
-Last but not least on our whirlwind tour is an explanation of functions.
+
+Last but not least on our whirlwind tour is a deeper look into functions.
+Some functions, like `print` and `input`, exist predefined in Python.
+We can also write our own:
 
 {{ codeblock(fn="functions_define", lc="py") }}
 
@@ -259,6 +290,6 @@ The first line of a function is its signature. Here, we give the function a name
 The lines after the first, indented at least one level from the definition, constitute the body of a function.
 The body of a function is any code that you desire.
 One optional part of a function is return statements.
-In a similar way to how input returned a string, and int returned an integer, we can return data from inside our function to use elsewhere.
+In a similar way to how `input` returned a string, and `int` returned an integer, we can return data from inside our function to use elsewhere.
 Once a return statement is hit, the function exits with the value given in the statement.
 Functions are a powerful tool, and they can even call themselves, a concept called recursion.
