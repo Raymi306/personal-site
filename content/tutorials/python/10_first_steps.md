@@ -152,9 +152,9 @@ We're interested to know whether or not something is true.
 In this case, we are doing a comparison using `==`.
 Note that when we want to check for equality, we use TWO equal signs.
 One equal sign is for assigning variables!
-So, if the user puts their name as 'Joshua', we take a special action, and print out: 'Hello.  Would you like to play a game?'.
+So, if the user puts their name as 'Joshua', we take a special action, and print out: 'Greetings.  Would you like to play a game?'.
 If it isn't Joshua, we check to see if it is 'Dave'.
-If it is, we print something different, this time: "I'm sorry, Dave. I'm afraid I still can't open the podbay doors".
+If it is, we print something different, this time: "I'm sorry, Dave.  I'm afraid I still can't open the podbay doors".
 Otherwise, we print out 'Hello, ' and their input.
 
 Note that after our conditions, or after the 'else' keyword, we MUST put a colon `:`.
