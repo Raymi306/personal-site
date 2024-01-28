@@ -173,9 +173,10 @@ lowercase_name = name.lower()
 
 This can simplify your checks with the string.
 We have only briefly touched upon functions and objects, and haven't mentioned methods yet.
-Methods are functions that are part of an object, and they are called be putting a period after a string, the method name, and then parentheses with any arguments inside.
+Methods are functions that are part of an object, and they are called by putting a period after a string, the method name, and then parentheses with any arguments inside.
 Strings have many useful methods that you can easily explore with `help(str)`.
 For now, ignore the methods starting and ending with two underscores.
+You can also read about it [online](https://docs.python.org/3/library/stdtypes.html#string-methods).
 If you wish to learn more about objects and methods, including those with the double underscores, there is a [later article](@/tutorials/python/23_classes.md) discussing them, but knowledge of them isn't critical for the rest of this tutorial page.
 
 If you have multiple lines indented to the same level, they will all execute if that branch is taken:
