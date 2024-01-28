@@ -4,7 +4,7 @@
 
 [about](https://andrew.let-them.cyou/about.html)
 
-[python tutorial source](https://github.com/Raymi306/python-tutorial)
+[python codeblocks](https://github.com/Raymi306/python-tutorial)
 
 ## Asset Info
 ### mazeletter-metropolis.woff2
