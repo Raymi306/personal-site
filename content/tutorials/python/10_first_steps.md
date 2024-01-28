@@ -145,7 +145,7 @@ Let's take a different action, depending on what the user types
 {{ codeblock(fn="conditions_names", lc="py") }}
 
 Several things are going on here. 
-We are using some fancy new keywords, if, elif (Pythonese for else if), and else.
+We are using some fancy new keywords, `if`, `elif` (Pythonese for else if), and `else`.
 
 After our `if` keyword, we put a conditional statement.
 We're interested to know whether or not something is true.
@@ -172,7 +172,7 @@ lowercase_name = name.lower()
 ```
 
 This can simplify your checks with the string.
-We haven't talked about methods yet and only briefly discussed functions and mentioned in passing objects.
+We have only briefly touched upon functions and objects, and haven't mentioned methods yet.
 Methods are functions that are part of an object, and they are called be putting a period after a string, the method name, and then parentheses with any arguments inside.
 Strings have many useful methods that you can easily explore with `help(str)`.
 For now, ignore the methods starting and ending with two underscores.
