@@ -32,6 +32,9 @@ html, body {
 	height: 100%;
 	z-index: -3;
 }
+h1 {
+	text-align: center;
+}
 h1, h2, h3 {
 	font-weight: bold;
 	text-shadow: 0.05em 0.03em 0.01em var(--gold-3);
@@ -160,10 +163,10 @@ a:active, #draw-button:active {
 		width: 100%;
 		display: grid;
 		grid-template-areas:
-		"header"
-		"nav-side"
-		"body"
-		"footer";
+			"header"
+			"nav-side"
+			"body"
+			"footer";
 		grid-template-rows: minmax(min-content, max-content) minmax(auto, max-content) minmax(10vw, auto) minmax(max-content, 2rem);
 		grid-gap: 0.3em;
 	}
@@ -183,9 +186,9 @@ a:active, #draw-button:active {
 		align-items: center;
 		flex-direction: column;
 	}
-    .no-margin-top-when-small {
-        margin-top: 0;
-    }
+	.no-margin-top-when-small {
+		margin-top: 0;
+	}
 	.nav-side h3 {
 		margin: 1rem 0 0 0;
 	}
