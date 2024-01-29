@@ -84,7 +84,7 @@ pip install --upgrade pip
 ```
 
 On Linux, if you find that you do not have pip, you can use your system's package manager to install it.
-For instance, on a Debianlike operating system with the Aptitude package manager, you could run:
+For instance, on a Debianlike operating system with the apt package manager, you could run:
 ```sh
 sudo apt install python3-pip
 ```
@@ -108,7 +108,7 @@ pip install -r requirements.txt
 See [this link](https://docs.python.org/3/library/venv.html#how-venvs-work) for all the ways to activate a venv on different platforms.
 
 If you are on Linux and find that you do not have access to the venv module, you can install it with your system's package manager.
-An example using Aptitude is below:
+An example using apt is below:
 
 ```sh
 sudo apt install python3-venv

@@ -23,7 +23,7 @@ The content inside of the quotation marks does not matter. Python also allows yo
 
 In Python, key words and built-in functions are case sensitive and only have one correct spelling.
 `print` is an example of a built-in function, a tool provided in the language to perform a certain task; namely, printing text for the user of the program to read.
-Computers are incredibly literal machines, `Print` or `prnt` are meaningless at the beginning of a python program.
+Computers are incredibly literal machines, `Print` or `prnt` are meaningless at the beginning of a Python program.
 
 The parentheses are necessary any time we want to call a function; that is to say, to invoke its action.
 
