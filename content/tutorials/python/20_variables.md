@@ -37,15 +37,7 @@ If you wish to use a variable that is a keyword or would override another, you m
 For example, 'id' -> 'id_'.
 If there is a variable that you do not need to use, use a single underscore for the variable name.
 
-```py
-for _ in range(3):  # we don't need the numbers in the range, we just want to do an action n times
-    print("hello")
-
-def returns_two():
-    return 3, 'foo'
-
-_, my_var = returns_two()  # we do not intend to use the first element of the returned tuple
-```
+{{ codeblock(fn="variables_underscore_as_unused", lc="py") }}
 
 ## Scope
 Scope is the concept of variable visibility.
@@ -53,84 +45,31 @@ That is to say, from where in code is a variable accessible.
 A variable is 'in-scope' on succeeding lines, with the exception of inside of class definitions.
 Class and function definitions create a new scope.
 
-```py
-var_1 = 2
-def func_1():
-    # functions have their own scope
-    var_2 = 3
-
-print(var_1)  # 2
-print(var_2)  # NameError: name 'var2' is not defined
-```
+{{ codeblock(fn="variables_scope", lc="py") }}
 
 One notable difference between Python and some other languages is that there is no new scope inside of blocks introduced by for loops, while loops, and if-elses.
 The below is valid Python:
 
-```py
-if foo():
-    var_1 = 100.13
-else:
-    var_1 = -33.12
-print(var_1)  # 100.13
-```
+{{ codeblock(fn="variables_block_scope_good", lc="py") }}
 
 Be careful if you take advantage of this, as it can be an easy way to introduce bugs.
 Consider the instance where you forget to assign to the variable in one branch of an if-else:
 
-```py
-if foo():
-    print("do something")
-else:
-    var_1 = True
-print(var_1)  # if foo() returns a truthy value, this will cause an error!
-```
+{{ codeblock(fn="variables_block_scope_bad", lc="py") }}
 
 In Python, [variable resolution occurs at runtime](https://docs.python.org/3/reference/executionmodel.html?highlight=variable%20scope#interaction-with-dynamic-features).
 The below example shows one possibly unexpected ramification of this.
 
-```py
-i = 15
-def foo():
-    print(i)
-i = 3
-foo()  # prints 3
-```
+{{ codeblock(fn="runtime_variable_resolution", lc="py") }}
 
 ## Mutating Outer Scope Variables
 
 Two keywords exist to allow you to assign to variables in a higher scope, 'nonlocal' and 'global'.
 Below are some examples of variable assignment with and without using the keywords.
 
-```py
-var_1 = 9.3
+{{ codeblock(fn="variables_mutating_outer_scope", lc="py") }}
 
-def func_1():
-    # accessing variables from an outer scope works fine
-    print(var_1)  # 9.3
-    # trying to change them will not work as expected
-    var_1 = 0.0
-    print(var_1)  # 0.0
-func_1()
-print(var_1)  # 9.3
-
-def func_2():
-    # the global keyword here grants the ability to modify var_1
-    global var_1
-    var_1 = 'foo'
-
-func_2()
-print(var_1)  # 'foo'
-```
-
-```py
-def outer_func():
-    var_1 = 42
-    def inner_func():
-        nonlocal var_1
-        var_1 = 13
-    inner_func()
-    print(var_1)  # 42
-```
+{{ codeblock(fn="variables_nonlocal", lc="py") }}
 
 Mutating global variables can lead to unexpected behavior in different parts of your program far removed from where you made the change.
 Mutating and overusing global variables is often considered bad practice.
@@ -144,26 +83,8 @@ However, user-defined objects, lists, dictionaries, and sets are mutable objects
 If you point two variables at the same mutable object, changes to one will affect the other.
 The best way to illustrate the consequences of this is an example:
 
-```py
-list_1 = [1, 2, 3]
-list_2 = list_1  # this does not copy the list, both variables will reference the same list
-list_1.append(4)
-print(list_2)  # [1, 2, 3, 4]
-```
+{{ codeblock(fn="mutable_objects_no_copy", lc="py") }}
 
 We may use the copy module to achieve the desired behavior.
 
-```py
-import copy
-list_1 = [1, 2, 3]
-list_2 = copy.copy(list_1)
-list_1.append(4)
-print(list_2)  # [1, 2, 3]
-
-# alternatively, you may copy a list with the following syntax:
-list_3 = list_1[:]
-
-# dictionaries have a copy method, saving you an import
-dict_1 = {1: 2}
-dict_2 = dict_1.copy()
-```
+{{ codeblock(fn="mutable_objects_copy", lc="py") }}
