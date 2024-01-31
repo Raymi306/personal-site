@@ -1,7 +1,8 @@
 +++
 title="Installation"
 [extra]
-next="@/tutorials/python/01_how_to_run_code.md"
+prev="@/tutorials/python/00_programming_overview.md"
+next="@/tutorials/python/02_how_to_run_code.md"
 +++
 
 # Installation

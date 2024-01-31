@@ -1,8 +1,7 @@
 +++
 title="Prelude"
 [extra]
-prev="@/tutorials/python/01_how_to_run_code.md"
-next="@/tutorials/python/10_first_steps.md"
+next="@/tutorials/python/01_installation.md"
 +++
 
 # Programming is Likely Simpler Than You Think

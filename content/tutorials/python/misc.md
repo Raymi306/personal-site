@@ -118,6 +118,11 @@ $ cd projects
 $ python3 sample.py
 ```
 
+Experiment with using the up and down arrow keys to recall commands that you have already typed.
+This is a huge time saver.
+Also, experiment with hitting the "Tab" key to trigger autocompletion.
+If you start typing `python3 s` and hit tab, if sample.py is the only file in that directory, most shells will autocomplete the filename for you.
+
 ---
 ## Common Text Editors {#text-editors}
 ---

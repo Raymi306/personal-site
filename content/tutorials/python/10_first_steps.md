@@ -1,7 +1,7 @@
 +++
 title="First Steps"
 [extra]
-prev="@/tutorials/python/02_programming_overview.md"
+prev="@/tutorials/python/02_how_to_run_code.md"
 next="@/tutorials/python/11_first_projects.md"
 +++
 
@@ -93,6 +93,14 @@ Error messages tend to contain useful information for improving our programs whe
 We will discuss error handling [later](@/tutorials/python/25_error_handling.md), although an example is included below.
 
 {{ codeblock(fn="futures_try_int_input", lc="py") }}
+
+One common problem I see among beginners that start with print and input, is that they try to use these two tools for everything.
+
+I wish to reiterate:
+
+print is ONLY for printing to the screen.
+
+input is ONLY for getting text from the person running your program.
 
 ---
 ## A Few Steps Back...Using help()
@@ -253,6 +261,7 @@ The simplest conceptually is the list.
 You can access items in a list by index, or by slice, which returns a sublist.
 Remember that to get an item at the BEGINNING of the list, you use 0 as the index.
 To access the last item in a list, you can either use the length of the list - 1 or simply -1 as the index.
+To get the length of a collection, call the builtin function `len` and pass in the collection as an argument.
 A dictionary is a mapping between keys and values.
 It is indexed by a key, and this gives the associated value.
 Sets are incredibly useful when it comes to checking if something exists or not in a collection, or the difference between two collections.
@@ -284,13 +293,34 @@ We can also write our own:
 
 {{ codeblock(fn="functions_splat", lc="py") }}
 
+```py
+def func():
+    """
+    Inside these triple quotes, you will find documentation
+    for this function.  These special comments are called
+    docstrings.
+    """
+    pass  # Do nothing statement
+```
+
 The magic of functions lies in structuring our code.
 We can write code inside of a function, and then reuse it anywhere we please in that same file (or others, if we import it)
 We have used functions throughout this introductory tutorial, now, we will learn how to create our own.
-The first line of a function is its signature. Here, we give the function a name, and inside the parentheses, indicate what data can be passed in to the function.
+
+The first line of a function is its signature.
+Here, we give the function a name, and inside the parentheses, indicate what data can be passed in to the function.
+
+The data we are passing in are referred to as arguments or parameters to a function.
+Much like variables, we can name our arguments and parameters almost anything we please.
+
 The lines after the first, indented at least one level from the definition, constitute the body of a function.
 The body of a function is any code that you desire.
+
 One optional part of a function is return statements.
 In a similar way to how `input` returned a string, and `int` returned an integer, we can return data from inside our function to use elsewhere.
 Once a return statement is hit, the function exits with the value given in the statement.
+Please do NOT confuse returning a value with printing it!
+These are two completely separate concepts.
+If a function has no return statement, it will return None by default.
+
 Functions are a powerful tool, and they can even call themselves, a concept called recursion.
