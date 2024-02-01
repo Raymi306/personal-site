@@ -7,7 +7,12 @@ next="@/tutorials/python/11_first_projects.md"
 
 # Humble Beginnings
 
-Let's explore two built-in tools provided to us by Python, `print` and `input`.
+This tutorial is intended to be an interactive experience.
+Type, **don't copy**, the code into your own files or into the interpreter and run them.
+Don't be afraid to experiment!
+Break things on purpose, change the code's behavior, and maybe even have some fun with it!
+
+To start, let's explore two built-in tools provided to us by Python, `print` and `input`.
 
 ---
 ## <built-in function print\>
@@ -70,13 +75,18 @@ Note that Python is quite clever, and understands that the plus operator, when u
 Note also that we must specify that we want a space in 'You typed: '; Python won't do things like that implicitly.
 
 `input` always returns what we type as a string, but sometimes we would like to interpret the value as a number so we can do fun things like maths.
+Let's go ahead and change the name of our variable to better represent what we want it to be, a number:
 
 {{ codeblock(fn="input_and_print_twice", lc="py") }}
 
-This returns whatever you type in twice, even if you type in a number! That's not quite what we want.
-What we need is a way to interpret the string data as numeric data, in our case, as an integer:
+This returns whatever you type in twice, regardless of if you type in a number or some random string of characters.
+That's not quite what we want.
+What we need is a way to try to interpret the string data as numeric data, in our case, as an integer:
 
 {{ codeblock(fn="input_and_print_double_v1", lc="py") }}
+
+The above snippet properly doubles the numbers that we type in.
+`int` is being used here to interpret the result of input as an integer; a whole number.
 
 With programming, there are often multiple approaches to a problem that are effectively the same:
 
@@ -86,27 +96,28 @@ With programming, there are often multiple approaches to a problem that are effe
 
 {{ codeblock(fn="input_and_print_double_v4", lc="py") }}
 
-These snippets all properly double whatever number we type in!
-`int` is being used here to interpret the result of input as an integer; a whole number.
-Note that it spits out an error message if you try giving it something that isn't a number!
+These snippets all accomplish the same goal of doubling our number!
+
+Note that there is a problem with this code.
+What happens if we don't type in a number?
+An error message pops up and ends the program!
 Error messages tend to contain useful information for improving our programs when things go wrong, and sometimes we don't want them to end our program.
-We will discuss error handling [later](@/tutorials/python/25_error_handling.md), although an example is included below.
+We will discuss error handling [later](@/tutorials/python/25_error_handling.md), an early example is also included below.
 
 {{ codeblock(fn="futures_try_int_input", lc="py") }}
 
-One common problem I see among beginners that start with print and input, is that they try to use these two tools for everything.
+One final note before we continue: a common problem I see among beginners that start with `print` and `input` is that they try to use these two tools for everything.
 
-I wish to reiterate:
+`print` is ONLY for printing to the screen.
 
-print is ONLY for printing to the screen.
-
-input is ONLY for getting text from the person running your program.
+`input` is ONLY for getting text from the person running your program.
 
 ---
 ## A Few Steps Back...Using help()
 ---
-Go ahead and drop into the Python interpreter. Type `help()` and then press enter.
-Now, go ahead and enter `print`, and you should see something like this:
+Drop into the Python interpreter if you don't already have it open.
+Type `help()` and then press enter.
+Now, enter `print`, and you should see something like this:
 
 ```
 print(...)
@@ -120,12 +131,19 @@ print(...)
     flush: whether to forcibly flush the stream.
 ```
 
-So far, we have just been passing one value into the print function, specifically, strings.
-The information that you pass into a function is referred to as **arguments** or **parameters**.
-Print has several more useful abilities beyond printing strings: it can print useful information for any Python object, and can even accept multiple objects, separated by commas.
-This ability to take multiple arguments is denoted by the '...' in the 2nd line of the above example.
-The other arguments are keyword arguments, they can be specified by name as follows: `print('Hello world, with no line ending!', end='')` *('\n' is a way of indicating a new line)*.
-When using keyword arguments by name, make sure to put them after the positional arguments that do not have a name specified.
+So far, we have just been passing one value into the print function, specifically, string values.
+The values that you pass into a function are referred to as **arguments** or **parameters**.
+`print` has several more useful abilities beyond printing strings: it can print useful information for any Python object, and can even accept multiple objects, separated by commas.
+For now, just know that almost everything in Python is an object.
+Strings, integers, and functions are all objects.
+
+The ability to take multiple arguments is denoted by the '...' in the 2nd line of the above example.
+Try printing multiple things at once by placing the values inside the parentheses separated by commas!
+The arguments from 'value' to '...' are referred to as positional arguments.
+The other arguments are keyword arguments, to refer to them you must use their name.
+Functions will be explained in more detail later on this page.
+For now, if you wish to use keyword arguments, refer to the following example: `print('Hello world, with no line ending!', end='')` *('\n' is a way of indicating a new line)*.
+When using keyword arguments, make sure to put them after any positional arguments that do not have a name specified.
 If you forget, Python will remind you with an error!
 
 Feel free to read the help for `input` as well!
@@ -140,7 +158,7 @@ To jump between matches, use `n` and `N` to go forwards and backwards respective
 When you are ready to leave, hit `q`
 
 You can also ask for help on other things, when inside interactive help, try typing one of: `modules, keywords, symbols, topics`.
-Then, try entering one of the entries within into the help.
+Then, try typing in one of the subentries.
 Many of the topics go quite in depth, and should match the official documentation online for your version of Python.
 You can also get help outside of interactive help mode by using help as a function, and passing either a string with what you need help on (as listed in modules, keywords, etc), or a Python object.
 I believe `help` to be an underutilized and underappreciated feature of Python that can help programmers of any skill level.
@@ -148,7 +166,7 @@ I believe `help` to be an underutilized and underappreciated feature of Python t
 ## Conditions and Branching
 
 Reacting the same way to every possible input is boring.
-Let's take a different action, depending on what the user types
+Let's take a different action depending on what the user types
 
 {{ codeblock(fn="conditions_names", lc="py") }}
 
@@ -261,13 +279,16 @@ The simplest conceptually is the list.
 You can access items in a list by index, or by slice, which returns a sublist.
 Remember that to get an item at the BEGINNING of the list, you use 0 as the index.
 To access the last item in a list, you can either use the length of the list - 1 or simply -1 as the index.
-To get the length of a collection, call the builtin function `len` and pass in the collection as an argument.
+
 A dictionary is a mapping between keys and values.
 It is indexed by a key, and this gives the associated value.
 Sets are incredibly useful when it comes to checking if something exists or not in a collection, or the difference between two collections.
+
 Tuples are similar to lists, but they are immutable.
 You cannot add or remove items from a tuple once it is created.
-All of these collections have helper functions for performing common tasks.
+
+All of these collections have helper functions for performing common tasks and some share common behaviors.
+To get the length of a collection, call the builtin function `len` and pass in the collection as an argument.
 Try calling:
 
 ```py
@@ -278,7 +299,7 @@ help(set)
 help(str)
 ```
 
-to learn about the many options these collections provide.
+to learn about the many other options these collections provide.
 Strings can also be indexed and iterated over in a manner similar to a tuple or list, allowing you to access individual characters.
 Strings, like tuples, are immutable.
 Here, we also catch a glimpse of for loops. This syntax allows us to conveniently loop through each item in a collection.
