@@ -258,39 +258,32 @@ In this case, we ask if the number is within a set of other numbers.
 
 ## Collections
 
-### Creating collections
-
 Up until now, we've mostly dealt with individual items.
 Python has several ways to organize and interact with multiple items:
 
 {{ codeblock(fn="collections_instantiations", lc="py") }}
 
-### Accessing items
-
 {{ codeblock(fn="collections_item_access_1", lc="py") }}
 
-The simplest collection conceptually is the list.
-You can access items in a list by index, or by slice, which returns a sublist.
-Remember that to get an item at the BEGINNING of the list, you use 0 as the index.
+The simplest collection is the list.
+You can access items in a list by index or by slice, which returns a sublist.
+Remember, to get an item at the BEGINNING of the list you use 0 as the index.
 To access the last item in a list, you can either use the length of the list - 1 or simply -1 as the index.
 
 {{ codeblock(fn="collections_item_access_2", lc="py") }}
 
 A dictionary is a mapping between keys and values.
-It is indexed by a key, and this gives the associated value.
-
-{{ codeblock(fn="collections_item_access_3", lc="py") }}
-
-Here, we catch a glimpse of for loops.
-These loops allows us to iterate more conveniently through each item in a collection in comparison to while loops.
-You may use tools that worked with while loops here as well, such as "break" and "continue".
+It is indexed by a key which gives the associated value.
 
 We created 2 other types of collections earlier.
 
-Sets are useful when it comes to checking if something exists or not in a collection, or the difference between two collections.
+Sets are useful when it comes to checking if something exists in a collection, or the difference between two collections.
 
 Tuples are similar to lists, but they are immutable.
 You cannot add or remove items from a tuple once it is created.
+
+Strings can also be indexed and iterated over in a manner similar to a tuple or list, allowing you to access individual characters.
+Strings, like tuples, are immutable.
 
 All of these collections have helper functions for performing common tasks and some share common behaviors.
 To get the length of a collection, call the builtin function `len` and pass in the collection as an argument.
@@ -306,8 +299,12 @@ help(str)
 
 to learn about the many other options these collections provide.
 
-Strings can also be indexed and iterated over in a manner similar to a tuple or list, allowing you to access individual characters.
-Strings, like tuples, are immutable.
+Finally, an introduction to 'for' loops:
+
+{{ codeblock(fn="collections_item_access_3", lc="py") }}
+
+These loops allows us to iterate more conveniently through each item in a collection in comparison to 'while' loops.
+You may use tools that worked with 'while' loops here as well, such as "break" and "continue".
 
 ## Functions
 
@@ -318,12 +315,13 @@ We can also write our own:
 {{ codeblock(fn="functions_define", lc="py") }}
 
 The first line of a function is its signature.
-Here, we give the function a name, and inside the parentheses, indicate what data can be passed in to the function.
+Here we give the function a name.
+Inside the parentheses, we indicate what data can be passed in to the function.
 
-The data we are passing in are referred to as arguments or parameters to a function.
-Much like variables, we can name our arguments and parameters almost anything we please.
+The values we are passing in are referred to as arguments or parameters to a function.
+Much like variables, we can name our arguments and parameters almost anything.
 
-When specifying the arguments for a function, you must provide the same number of arguments in the same position as they are written.
+When calling a function and specifying the arguments, you must provide the same number of arguments in the same position as they are written.
 There are a few exceptions to this.
 One is when an argument is given a default value, which we will see an example of soon.
 The other is when you refer to the arguments by their name with the pattern `name=value`.
@@ -332,13 +330,14 @@ The lines after the signature, indented at least one level from the definition, 
 The body of a function is any code that you desire.
 
 One optional part of a function is the return statement.
-In a similar way to how `input` returned a string, and `int` returned an integer, we can return data from inside our function to use elsewhere.
+In a similar way to how `input` returns a string, and `int` returns an integer, we can return data from inside our function to use elsewhere.
 Once a return statement is hit, the function exits with the value given in the statement.
 Please do NOT confuse returning a value with printing it!
-These are two completely separate concepts.
+These are two separate concepts.
 If a function has no return statement, it will return None by default.
 You may also have multiple return statements throughout your function.
-See below for an illustration of how to use default arguments:
+
+Below is an illustration of how to use default arguments:
 
 {{ codeblock(fn="functions_default_args", lc="py") }}
 
