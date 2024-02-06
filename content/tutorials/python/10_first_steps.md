@@ -188,14 +188,7 @@ Furthermore, on the next line, we must indent.
 
 When checking for string equality, if you are not worried about case sensitivity, you can use the string method "lower" or "upper" to force the string to all lower or all upper case respectively:
 
-```py
-name = input().lower()
-
-# OR
-
-name = input()
-lowercase_name = name.lower()
-```
+{{ codeblock(fn="conditions_string_lower", lc="py") }}
 
 This can simplify your checks with the string.
 We have only briefly touched upon functions and objects, and haven't mentioned methods yet.
@@ -267,29 +260,41 @@ In this case, we ask if the number is within a set of other numbers.
 
 ### Creating collections
 
+Up until now, we've mostly dealt with individual items.
+Python has several ways to organize and interact with multiple items:
+
 {{ codeblock(fn="collections_instantiations", lc="py") }}
 
 ### Accessing items
 
-{{ codeblock(fn="collections_item_access", lc="py") }}
+{{ codeblock(fn="collections_item_access_1", lc="py") }}
 
-Up until now, we've mostly dealt with individual items.
-Python has several ways to organize and interact with multiple items.
-The simplest conceptually is the list.
+The simplest collection conceptually is the list.
 You can access items in a list by index, or by slice, which returns a sublist.
 Remember that to get an item at the BEGINNING of the list, you use 0 as the index.
 To access the last item in a list, you can either use the length of the list - 1 or simply -1 as the index.
 
+{{ codeblock(fn="collections_item_access_2", lc="py") }}
+
 A dictionary is a mapping between keys and values.
 It is indexed by a key, and this gives the associated value.
-Sets are incredibly useful when it comes to checking if something exists or not in a collection, or the difference between two collections.
+
+{{ codeblock(fn="collections_item_access_3", lc="py") }}
+
+Here, we catch a glimpse of for loops.
+These loops allows us to iterate more conveniently through each item in a collection in comparison to while loops.
+You may use tools that worked with while loops here as well, such as "break" and "continue".
+
+We created 2 other types of collections earlier.
+
+Sets are useful when it comes to checking if something exists or not in a collection, or the difference between two collections.
 
 Tuples are similar to lists, but they are immutable.
 You cannot add or remove items from a tuple once it is created.
 
 All of these collections have helper functions for performing common tasks and some share common behaviors.
 To get the length of a collection, call the builtin function `len` and pass in the collection as an argument.
-Try calling:
+To learn more, try calling:
 
 ```py
 help(list)
@@ -300,9 +305,9 @@ help(str)
 ```
 
 to learn about the many other options these collections provide.
+
 Strings can also be indexed and iterated over in a manner similar to a tuple or list, allowing you to access individual characters.
 Strings, like tuples, are immutable.
-Here, we also catch a glimpse of for loops. This syntax allows us to conveniently loop through each item in a collection.
 
 ## Functions
 
@@ -312,36 +317,46 @@ We can also write our own:
 
 {{ codeblock(fn="functions_define", lc="py") }}
 
-{{ codeblock(fn="functions_splat", lc="py") }}
-
-```py
-def func():
-    """
-    Inside these triple quotes, you will find documentation
-    for this function.  These special comments are called
-    docstrings.
-    """
-    pass  # Do nothing statement
-```
-
-The magic of functions lies in structuring our code.
-We can write code inside of a function, and then reuse it anywhere we please in that same file (or others, if we import it)
-We have used functions throughout this introductory tutorial, now, we will learn how to create our own.
-
 The first line of a function is its signature.
 Here, we give the function a name, and inside the parentheses, indicate what data can be passed in to the function.
 
 The data we are passing in are referred to as arguments or parameters to a function.
 Much like variables, we can name our arguments and parameters almost anything we please.
 
-The lines after the first, indented at least one level from the definition, constitute the body of a function.
+When specifying the arguments for a function, you must provide the same number of arguments in the same position as they are written.
+There are a few exceptions to this.
+One is when an argument is given a default value, which we will see an example of soon.
+The other is when you refer to the arguments by their name with the pattern `name=value`.
+
+The lines after the signature, indented at least one level from the definition, constitute the body of a function.
 The body of a function is any code that you desire.
 
-One optional part of a function is return statements.
+One optional part of a function is the return statement.
 In a similar way to how `input` returned a string, and `int` returned an integer, we can return data from inside our function to use elsewhere.
 Once a return statement is hit, the function exits with the value given in the statement.
 Please do NOT confuse returning a value with printing it!
 These are two completely separate concepts.
 If a function has no return statement, it will return None by default.
+You may also have multiple return statements throughout your function.
+See below for an illustration of how to use default arguments:
+
+{{ codeblock(fn="functions_default_args", lc="py") }}
+
+The next codeblock may take some time to fully appreciate.
+Python has a special operator for unpacking collections, called the "splat".
+It is represented with an asterisk.
+Please bear in mind that the functions shown are for illustration purposes and are not necessarily the best way to accomplish a given task.
+For example, instead of writing your own "sum_many" function, you may use the builtin function "sum".
+
+{{ codeblock(fn="functions_splat", lc="py") }}
+
+{{ codeblock(fn="functions_docstring_pass", lc="py") }}
+
+The magic of functions lies in structuring our code.
+We can write code inside of a function, and then reuse it anywhere we please in that same file (or others, if we import it.  See the next page for more about that)
 
 Functions are a powerful tool, and they can even call themselves, a concept called recursion.
+
+{{ codeblock(fn="recursion", lc="py") }}
+
+See [Wikipedia](https://en.wikipedia.org/wiki/Fibonacci_sequence) for more on the fibonacci sequence.

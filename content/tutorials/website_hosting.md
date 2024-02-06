@@ -148,7 +148,7 @@ The two most important records for our purposes are 'A' records and 'CNAME' reco
 Set the 'A' record to point to the public IP of your server. If it asks for a host, you may put '@'. Then, set the CNAME record with the subdomain 'www.' to point to your domain.
 CNAMES are aliases, so if you change your 'A' record again for any reason, the 'www.' subdomain follows it for you!
 That's about it for domains! Now, you can log in to your server with `ssh -p PORTNUMBER USER@DOMAINNAME`, and we are ready to start serving things on the web.
-Check out [this link](https://andrew.let-them.cyou/tutorials/basic-dns.html) for more information about DNS.
+Check out [this link](@/tutorials/basic_dns.md) for more information about DNS.
 
 ---
 ## Web Server Configuration
