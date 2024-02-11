@@ -165,44 +165,39 @@ I believe `help` to be an underutilized and underappreciated feature of Python t
 
 ## Conditions and Branching
 
-Reacting the same way to every possible input is boring.
-Let's take a different action depending on what the user types
+Your program reacting the same way to every possible input is boring.
+Let's have it take a different action depending on what the user types:
 
 {{ codeblock(fn="conditions_names", lc="py") }}
 
-Several things are going on here. 
-We are using some fancy new keywords, `if`, `elif` (Pythonese for else if), and `else`.
+We are using several fancy new keywords: `if`, `elif` (Pythonese for else if), and `else`.
 
-After our `if` keyword, we put a conditional statement.
-We're interested to know whether or not something is true.
-In this case, we are doing a comparison using `==`.
-Note that when we want to check for equality, we use TWO equal signs.
-One equal sign is for assigning variables!
-So, if the user puts their name as 'Joshua', we take a special action, and print out: 'Greetings.  Would you like to play a game?'.
-If it isn't Joshua, we check to see if it is 'Dave'.
+After the `if` and `elif` keywords, we need to put a conditional statement.
+A conditional statement is a statement which is either true or false.
+In our case, we are interested in checking if two things are equal.
+If they are equal, then the statement is true, otherwise the statement will be false.
+To do this comparison, we use the equality check operator: `==`.
+Remember, when concerned about equality, always use two equal signs.
+One equal sign is just for assigning variables!
+
+Looking at our code, we first check if the user's name is Joshua.
+If it is, we take a special action and print out: 'Greetings.  Would you like to play a game?'.
+If it isn't Joshua, we then check to see if it is 'Dave'.
 If it is, we print something different, this time: "I'm sorry, Dave.  I'm afraid I still can't open the podbay doors".
-Otherwise, we print out 'Hello, ' and their input.
+If the user's input is neither Joshua nor Dave, we have a default case to fall back onto, indicated by the `else`.
+Note that `else` does not have a condition or any statement at all.
+If we hit this final branch, we print out 'Hello, ' and their input.
 
-Note that after our conditions, or after the 'else' keyword, we MUST put a colon `:`.
+After our conditional statements, or after the 'else' keyword, we MUST put a colon `:`.
 Furthermore, on the next line, we must indent.
+Some text editors will indent for you when you add a new line.
 
-When checking for string equality, if you are not worried about case sensitivity, you can use the string method "lower" or "upper" to force the string to all lower or all upper case respectively:
-
-{{ codeblock(fn="conditions_string_lower", lc="py") }}
-
-This can simplify your checks with the string.
-We have only briefly touched upon functions and objects, and haven't mentioned methods yet.
-Methods are functions that are part of an object, and they are called by putting a period after a string, the method name, and then parentheses with any arguments inside.
-Strings have many useful methods that you can easily explore with `help(str)`.
-For now, ignore the methods starting and ending with two underscores.
-You can also read about it [online](https://docs.python.org/3/library/stdtypes.html#string-methods).
-If you wish to learn more about objects and methods, including those with the double underscores, there is a [later article](@/tutorials/python/23_classes.md) discussing them, but knowledge of them isn't critical for the rest of this tutorial page.
 
 If you have multiple lines indented to the same level, they will all execute if that branch is taken:
 
 {{ codeblock(fn="conditions_indent", lc="py") }}
 
-Return to the original indentation level when you wish to write code that occurs AFTER your if statement.
+Return to the original indentation level when you wish to write code that occurs AFTER your if block.
 
 White space is important in Python!
 Some languages use brackets `{}` to group code together logically, Python relies on levels of indentation, using either tabs or spaces (take care not to mix them).
@@ -217,6 +212,27 @@ Using `and` to combine two statements means that the full condition will evaluat
 You can negate a condition with `not` to test for the inverse of a condition.
 If you want to check for a condition that is False, negating the condition would give you `True` and thus would let the branch evaluate.
 Finally, if you wish to check that two items are not equal, you can use `!=`.
+
+Some learners may appreciate a nice table.
+
+### and:
+
+| p | q |p and q|
+|---|---|-------|
+| T | T | T     |
+| T | F | F     |
+| F | T | F     |
+| F | F | F     |
+
+### or:
+
+| p | q |p or q|
+|---|---|------|
+| T | T | T    |
+| T | F | T    |
+| F | T | T    |
+| F | F | F    |
+
 
 ## Repetition, Looping
 
@@ -239,7 +255,7 @@ Let's combine a while loop with some earlier knowledge, and demonstrate how to e
 
 This program will continually prompt the user for input, and print it back out to them.
 Unless, that is, the user enters 'q'.
-Then, when code execution reaches the 'break' statement, code execution will exit the loop.
+Then, when code execution reaches the `break` statement, code execution will exit the loop.
 Since that is the end of this code sample, the program ends.
 
 
@@ -304,7 +320,7 @@ Finally, an introduction to 'for' loops:
 {{ codeblock(fn="collections_item_access_3", lc="py") }}
 
 These loops allows us to iterate more conveniently through each item in a collection in comparison to 'while' loops.
-You may use tools that worked with 'while' loops here as well, such as "break" and "continue".
+You may use tools that worked with 'while' loops here as well, such as `break` and `continue`.
 
 ## Functions
 
@@ -337,25 +353,9 @@ These are two separate concepts.
 If a function has no return statement, it will return None by default.
 You may also have multiple return statements throughout your function.
 
-Below is an illustration of how to use default arguments:
+Below is the promised example showing how to use default arguments:
 
 {{ codeblock(fn="functions_default_args", lc="py") }}
 
-The next codeblock may take some time to fully appreciate.
-Python has a special operator for unpacking collections, called the "splat".
-It is represented with an asterisk.
-Please bear in mind that the functions shown are for illustration purposes and are not necessarily the best way to accomplish a given task.
-For example, instead of writing your own "sum_many" function, you may use the builtin function "sum".
-
-{{ codeblock(fn="functions_splat", lc="py") }}
-
-{{ codeblock(fn="functions_docstring_pass", lc="py") }}
-
 The magic of functions lies in structuring our code.
-We can write code inside of a function, and then reuse it anywhere we please in that same file (or others, if we import it.  See the next page for more about that)
-
-Functions are a powerful tool, and they can even call themselves, a concept called recursion.
-
-{{ codeblock(fn="recursion", lc="py") }}
-
-See [Wikipedia](https://en.wikipedia.org/wiki/Fibonacci_sequence) for more on the fibonacci sequence.
+We can write code inside of a function, and then reuse it anywhere we please.
