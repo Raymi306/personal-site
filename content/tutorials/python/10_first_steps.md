@@ -333,6 +333,8 @@ You may use tools that worked with 'while' loops here as well, such as `break` a
 ## Functions
 
 Last but not least on our whirlwind tour is an overview of functions.
+The magic of functions lies in structuring our code.
+We can write code inside of a function, and then reuse it anywhere we please to avoid repetition.
 Some functions, like `print` and `input`, exist predefined in Python.
 We can also write our own:
 
@@ -364,6 +366,3 @@ You may also have multiple return statements throughout your function.
 Below is an example showing how to use default arguments:
 
 {{ codeblock(fn="functions_default_args", lc="py") }}
-
-The magic of functions lies in structuring our code.
-We can write code inside of a function, and then reuse it anywhere we please.
