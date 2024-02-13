@@ -190,18 +190,18 @@ If we hit this final branch, we print out 'Hello, ' and their input.
 
 After our conditional statements, or after the 'else' keyword, we MUST put a colon `:`.
 Furthermore, on the next line, we must indent.
-Some text editors will indent for you when you add a new line.
+Some languages use brackets `{}` to group code together logically.
+Python relies on levels of indentation using either tabs or spaces.
+Take care not to mix them.
+The standard level of indentation when coding in Python is 4 spaces; however, so long as you are consistent, your code will work.
 
+Some text editors will indent for you when you add a new line.
 
 If you have multiple lines indented to the same level, they will all execute if that branch is taken:
 
 {{ codeblock(fn="conditions_indent", lc="py") }}
 
 Return to the original indentation level when you wish to write code that occurs AFTER your if block.
-
-White space is important in Python!
-Some languages use brackets `{}` to group code together logically, Python relies on levels of indentation, using either tabs or spaces (take care not to mix them).
-4 spaces are the standard level of indentation when coding in Python, however, so long as you are consistent, your code will work.
 
 {{ codeblock(fn="conditions_boolean_logic", lc="py") }}
 
@@ -233,7 +233,6 @@ Some learners may appreciate a nice table.
 | F | T | T    |
 | F | F | F    |
 
-
 ## Repetition, Looping
 
 If we want to do the same thing more than once, repeating yourself is clumsy and hard to read.
@@ -255,7 +254,7 @@ Let's combine a while loop with some earlier knowledge, and demonstrate how to e
 
 {{ codeblock(fn="loops_input_to_break", lc="py") }}
 
-This program will continually prompt the user for input, and print it back out to them.
+This program will continually prompt the user for input and print it back out to them.
 Unless, that is, the user enters 'q'.
 This will cause the code to reach the `break` statement, causing the loop to be exited.
 Since that is the end of this code sample, the program ends.
@@ -267,7 +266,7 @@ Can you guess what you have to do to exit this program once it begins running?
 No cheating by using a keyboard interrupt!
 
 Sometimes in a loop, we want to skip to the next iteration if a condition is met.
-We can we can use the `continue` keyword to do this.
+We can use the `continue` keyword to do this.
 
 {{ codeblock(fn="loops_simple_continue", lc="py") }}
 
@@ -334,7 +333,7 @@ You may use tools that worked with 'while' loops here as well, such as `break` a
 
 Last but not least on our whirlwind tour is an overview of functions.
 The magic of functions lies in structuring our code.
-We can write code inside of a function, and then reuse it anywhere we please to avoid repetition.
+We can write code inside of a function and then reuse it anywhere we please to avoid repetition.
 Some functions, like `print` and `input`, exist predefined in Python.
 We can also write our own:
 
