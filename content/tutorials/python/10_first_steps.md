@@ -165,48 +165,43 @@ I believe `help` to be an underutilized and underappreciated feature of Python t
 
 ## Conditions and Branching
 
-Reacting the same way to every possible input is boring.
-Let's take a different action depending on what the user types
+Your program reacting the same way to every possible input is boring.
+Let's have it take a different action depending on what the user types:
 
 {{ codeblock(fn="conditions_names", lc="py") }}
 
-Several things are going on here. 
-We are using some fancy new keywords, `if`, `elif` (Pythonese for else if), and `else`.
+We are using several fancy new keywords: `if`, `elif` (Pythonese for else if), and `else`.
 
-After our `if` keyword, we put a conditional statement.
-We're interested to know whether or not something is true.
-In this case, we are doing a comparison using `==`.
-Note that when we want to check for equality, we use TWO equal signs.
-One equal sign is for assigning variables!
-So, if the user puts their name as 'Joshua', we take a special action, and print out: 'Greetings.  Would you like to play a game?'.
-If it isn't Joshua, we check to see if it is 'Dave'.
+After the `if` and `elif` keywords, we need to put a conditional statement.
+A conditional statement is a statement which is either true or false.
+In our case, we are interested in checking if two things are equal.
+If they are equal, then the statement is true, otherwise the statement will be false.
+To do this comparison, we use the equality check operator: `==`.
+Remember, when concerned about equality, always use two equal signs.
+One equal sign is just for assigning variables!
+
+Looking at our code, we first check if the user's name is Joshua.
+If it is, we take a special action and print out: 'Greetings.  Would you like to play a game?'.
+If it isn't Joshua, we then check to see if it is 'Dave'.
 If it is, we print something different, this time: "I'm sorry, Dave.  I'm afraid I still can't open the podbay doors".
-Otherwise, we print out 'Hello, ' and their input.
+If the user's input is neither Joshua nor Dave, we have a default case to fall back onto, indicated by the `else`.
+Note that `else` does not have a condition or any statement at all.
+If we hit this final branch, we print out 'Hello, ' and their input.
 
-Note that after our conditions, or after the 'else' keyword, we MUST put a colon `:`.
+After our conditional statements, or after the 'else' keyword, we MUST put a colon `:`.
 Furthermore, on the next line, we must indent.
+Some languages use brackets `{}` to group code together logically.
+Python relies on levels of indentation using either tabs or spaces.
+Take care not to mix them.
+The standard level of indentation when coding in Python is 4 spaces; however, so long as you are consistent, your code will work.
 
-When checking for string equality, if you are not worried about case sensitivity, you can use the string method "lower" or "upper" to force the string to all lower or all upper case respectively:
-
-{{ codeblock(fn="conditions_string_lower", lc="py") }}
-
-This can simplify your checks with the string.
-We have only briefly touched upon functions and objects, and haven't mentioned methods yet.
-Methods are functions that are part of an object, and they are called by putting a period after a string, the method name, and then parentheses with any arguments inside.
-Strings have many useful methods that you can easily explore with `help(str)`.
-For now, ignore the methods starting and ending with two underscores.
-You can also read about it [online](https://docs.python.org/3/library/stdtypes.html#string-methods).
-If you wish to learn more about objects and methods, including those with the double underscores, there is a [later article](@/tutorials/python/23_classes.md) discussing them, but knowledge of them isn't critical for the rest of this tutorial page.
+Some text editors will indent for you when you add a new line.
 
 If you have multiple lines indented to the same level, they will all execute if that branch is taken:
 
 {{ codeblock(fn="conditions_indent", lc="py") }}
 
-Return to the original indentation level when you wish to write code that occurs AFTER your if statement.
-
-White space is important in Python!
-Some languages use brackets `{}` to group code together logically, Python relies on levels of indentation, using either tabs or spaces (take care not to mix them).
-4 spaces are the standard level of indentation when coding in Python, however, so long as you are consistent, your code will work.
+Return to the original indentation level when you wish to write code that occurs AFTER your if block.
 
 {{ codeblock(fn="conditions_boolean_logic", lc="py") }}
 
@@ -218,43 +213,66 @@ You can negate a condition with `not` to test for the inverse of a condition.
 If you want to check for a condition that is False, negating the condition would give you `True` and thus would let the branch evaluate.
 Finally, if you wish to check that two items are not equal, you can use `!=`.
 
+Some learners may appreciate a nice table.
+
+### and
+
+| p | q |p and q|
+|---|---|-------|
+| T | T | T     |
+| T | F | F     |
+| F | T | F     |
+| F | F | F     |
+
+### or
+
+| p | q |p or q|
+|---|---|------|
+| T | T | T    |
+| T | F | T    |
+| F | T | T    |
+| F | F | F    |
+
 ## Repetition, Looping
 
-Generally, code executes line by line, starting at the top and continuing to the bottom.
 If we want to do the same thing more than once, repeating yourself is clumsy and hard to read.
-We program to be lazy; a good mantra is DRY: Don't Repeat Yourself!
+We program to be lazy. A good mantra is DRY: Don't Repeat Yourself!
 Loops provide the structure to do a task repeatedly, repeat until a condition is met, repeat until every item in a collection is examined, or repeat indefinitely.
+Generally, code executes line by line, starting at the top and continuing to the bottom.
+A loop breaks this rule, allowing code to circle back on itself.
 
 Let's first examine the `while` loop:
 
 {{ codeblock(fn="loops_scream", lc="py") }}
 
 This code will cause your computer to print 'hello...' forever.
-Feel free to run it, you can stop the code from executing by sending a 'keyboard interrupt', by pressing `Ctrl + c`.
+It is still ok to run it.
+You can stop the code from executing by sending a 'keyboard interrupt', `Ctrl + c`.
 
-The infinite loop can be a valuable tool for programs that you want to run until the user wishes to perform some action to close out of it.
-Let's combine a while loop with some earlier knowledge, and demonstrate how to exit a loop with the `break` keyword:
+The infinite loop can be a valuable tool for programs that need to run until the user performs some action to close it.
+Let's combine a while loop with some earlier knowledge, and demonstrate how to exit a loop early with the `break` keyword:
 
 {{ codeblock(fn="loops_input_to_break", lc="py") }}
 
-This program will continually prompt the user for input, and print it back out to them.
+This program will continually prompt the user for input and print it back out to them.
 Unless, that is, the user enters 'q'.
-Then, when code execution reaches the 'break' statement, code execution will exit the loop.
+This will cause the code to reach the `break` statement, causing the loop to be exited.
 Since that is the end of this code sample, the program ends.
-
 
 {{ codeblock(fn="loops_2_var_counter", lc="py") }}
 
-This program uses 2 variables, and places a condition just like the ones we use with 'if' statements after the 'while' keyword.
-Can you guess what you have to do to exit this program once it begins running? No cheating by using a keyboard interrupt!
+This program uses 2 variables, and places a conditional statement just like the ones we use with 'if' blocks after the 'while' keyword.
+Can you guess what you have to do to exit this program once it begins running?
+No cheating by using a keyboard interrupt!
 
-Sometimes in a loop, we want to skip to the next iteration if a condition is met. We can achieve this effect with the `continue` keyword.
+Sometimes in a loop, we want to skip to the next iteration if a condition is met.
+We can use the `continue` keyword to do this.
 
 {{ codeblock(fn="loops_simple_continue", lc="py") }}
 
 This program prints out the number of each iteration, except for the cases where the iteration is equal to 3 or 7.
-We also have a different approach for a conditional that wishes to check equality against several items.
-In this case, we ask if the number is within a set of other numbers.
+We see here a new type of conditional statement.
+If you wish to check if a value is one of a set of values, you may use this syntax, placing the values in between the curly braces separated by commas as shown.
 
 ## Collections
 
@@ -267,8 +285,13 @@ Python has several ways to organize and interact with multiple items:
 
 The simplest collection is the list.
 You can access items in a list by index or by slice, which returns a sublist.
+In the example above, you can see the slices have a colon in them.
 Remember, to get an item at the BEGINNING of the list you use 0 as the index.
 To access the last item in a list, you can either use the length of the list - 1 or simply -1 as the index.
+For slices, the number to the left of the colon is the starting index.
+If omitted, it is the beginning of the collection.
+The number to the right is the end index plus 1.
+The right side does *not* start with 0!
 
 {{ codeblock(fn="collections_item_access_2", lc="py") }}
 
@@ -277,17 +300,18 @@ It is indexed by a key which gives the associated value.
 
 We created 2 other types of collections earlier.
 
-Sets are useful when it comes to checking if something exists in a collection, or the difference between two collections.
+Sets are useful when it comes to checking if something exists within a collection, or the difference between two collections.
 
 Tuples are similar to lists, but they are immutable.
-You cannot add or remove items from a tuple once it is created.
+This means that you cannot add or remove items from a tuple once it is created.
 
 Strings can also be indexed and iterated over in a manner similar to a tuple or list, allowing you to access individual characters.
 Strings, like tuples, are immutable.
 
-All of these collections have helper functions for performing common tasks and some share common behaviors.
-To get the length of a collection, call the builtin function `len` and pass in the collection as an argument.
-To learn more, try calling:
+All of these collections have builtin helper functions for performing common tasks.
+They also have common behaviors that allow you to treat any collection similarly.
+For example, to get the length of a collection, call the builtin function `len` and pass in the collection as an argument.
+To learn more about the builtins, try calling:
 
 ```py
 help(list)
@@ -297,18 +321,19 @@ help(set)
 help(str)
 ```
 
-to learn about the many other options these collections provide.
-
+This will show you how to add and remove items from a list, how to merge dictionaries, and more.
 Finally, an introduction to 'for' loops:
 
 {{ codeblock(fn="collections_item_access_3", lc="py") }}
 
 These loops allows us to iterate more conveniently through each item in a collection in comparison to 'while' loops.
-You may use tools that worked with 'while' loops here as well, such as "break" and "continue".
+You may use tools that worked with 'while' loops here as well, such as `break` and `continue`.
 
 ## Functions
 
-Last but not least on our whirlwind tour is a deeper look into functions.
+Last but not least on our whirlwind tour is an overview of functions.
+The magic of functions lies in structuring our code.
+We can write code inside of a function and then reuse it anywhere we please to avoid repetition.
 Some functions, like `print` and `input`, exist predefined in Python.
 We can also write our own:
 
@@ -319,7 +344,7 @@ Here we give the function a name.
 Inside the parentheses, we indicate what data can be passed in to the function.
 
 The values we are passing in are referred to as arguments or parameters to a function.
-Much like variables, we can name our arguments and parameters almost anything.
+Much like variables, we can name our arguments almost anything.
 
 When calling a function and specifying the arguments, you must provide the same number of arguments in the same position as they are written.
 There are a few exceptions to this.
@@ -330,32 +355,13 @@ The lines after the signature, indented at least one level from the definition, 
 The body of a function is any code that you desire.
 
 One optional part of a function is the return statement.
-In a similar way to how `input` returns a string, and `int` returns an integer, we can return data from inside our function to use elsewhere.
+In a similar way to how `input` returns a string, we can return data from inside our function to use elsewhere.
 Once a return statement is hit, the function exits with the value given in the statement.
 Please do NOT confuse returning a value with printing it!
 These are two separate concepts.
-If a function has no return statement, it will return None by default.
+If a function has no return statement, it will implicitly return None.
 You may also have multiple return statements throughout your function.
 
-Below is an illustration of how to use default arguments:
+Below is an example showing how to use default arguments:
 
 {{ codeblock(fn="functions_default_args", lc="py") }}
-
-The next codeblock may take some time to fully appreciate.
-Python has a special operator for unpacking collections, called the "splat".
-It is represented with an asterisk.
-Please bear in mind that the functions shown are for illustration purposes and are not necessarily the best way to accomplish a given task.
-For example, instead of writing your own "sum_many" function, you may use the builtin function "sum".
-
-{{ codeblock(fn="functions_splat", lc="py") }}
-
-{{ codeblock(fn="functions_docstring_pass", lc="py") }}
-
-The magic of functions lies in structuring our code.
-We can write code inside of a function, and then reuse it anywhere we please in that same file (or others, if we import it.  See the next page for more about that)
-
-Functions are a powerful tool, and they can even call themselves, a concept called recursion.
-
-{{ codeblock(fn="recursion", lc="py") }}
-
-See [Wikipedia](https://en.wikipedia.org/wiki/Fibonacci_sequence) for more on the fibonacci sequence.
