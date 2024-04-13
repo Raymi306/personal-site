@@ -4,11 +4,9 @@ description="Information about the creation of this website"
 +++
 
 # About
-This website is hosted in Digital Ocean on Ubuntu with nginx.
+This website is hosted with Cloudflare Pages.
 
-DNS is also managed through Digital Ocean, and purchased through namecheap.
-
-Featuring HTTP2 Push for fast initial page load and whichever styling and JavaScript features catch my eye.
+Featuring HTTP2 Push for an even faster initial page load and whichever styling and JavaScript features catch my eye.
 
 CSS grid is being used mostly as a learning exercise.
 
@@ -20,7 +18,7 @@ I am using [gruvbox-dark](https://github.com/morhetz/gruvbox) for code highlight
 
 The tutorial features full unittests on all code samples.
 No more tutorials with code samples that don't do what they say on the box! In theory, anyway...
-The [Python tutorial github](https://github.com/Raymi306/python-tutorial) can be found here.
+The [Python tutorial code snippets github](https://github.com/Raymi306/python-tutorial) can be found here.
 
 Feel free to look at this site's [github page](https://github.com/Raymi306/personal-site) for more information.
 If you encounter any issues on an up-to-date browser or have any questions or suggestions, please contact me at [raymi306@gmail.com](mailto:raymi306@gmail.com).

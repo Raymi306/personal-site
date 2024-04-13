@@ -69,10 +69,6 @@ h4 {
 	color: #fcf6de
 }
 
-.reduced {
-    font-size: 1rem;
-}
-
 @media print {
   .no-print {
     display: none !important;
