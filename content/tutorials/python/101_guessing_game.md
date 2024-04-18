@@ -8,12 +8,13 @@ next="@/tutorials/python/102_guessing_game.md"
 # Randomness and the Standard Library
 
 ```py
-from random import randomint
+from random import randint
 
-answer = random.randint(1, 100)
-guess = int(input('Guess a number between 1 and 100: '))
+answer = randint(1, 100)
+guess_string = input('Guess a number between 1 and 100: ')
+guess_integer = int(guess_string)
 
-if guess == answer:
+if guess_integer == answer:
     print('You win!')
 else:
     print('You lose!')

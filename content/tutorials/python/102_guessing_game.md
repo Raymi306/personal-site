@@ -8,10 +8,10 @@ next="@/tutorials/python/103_guessing_game.md"
 # Loops!
 
 ```py
-from random import randomint
+from random import randint
 
 while True:
-    answer = random.randint(1, 100)
+    answer = randint(1, 100)
     guess = int(input('Guess a number between 1 and 100: '))
 
     if guess == answer:
@@ -21,10 +21,10 @@ while True:
 ```
 
 ```py
-from random import randomint
+from random import randint
 
 while input('Play game? y/n: ') == 'y':
-    answer = random.randint(1, 100)
+    answer = randint(1, 100)
     guess = int(input('Guess a number between 1 and 100: '))
 
     if guess == answer:

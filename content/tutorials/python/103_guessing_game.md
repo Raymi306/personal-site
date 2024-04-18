@@ -7,12 +7,12 @@ prev="@/tutorials/python/102_guessing_game.md"
 # High or low?
 
 ```py
-from random import randomint
+from random import randint
 
 MAX_GUESSES = 3
 
 while input('Play game? y/n: ').strip().lower() == 'y':
-    answer = random.randint(1, 100)
+    answer = randint(1, 100)
     current_guess = 0
     player_wins = False
 
