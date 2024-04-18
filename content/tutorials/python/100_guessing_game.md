@@ -8,10 +8,9 @@ next="@/tutorials/python/101_guessing_game.md"
 
 ```py
 answer = "17"
-guess_string = input('Guess a number between 1 and 100: ')
-guess_integer = guess_string
+guess = input('Guess a number between 1 and 100: ')
 
-if guess_integer == answer:
+if guess == answer:
     print('You win!')
 else:
     print('You lose!')
