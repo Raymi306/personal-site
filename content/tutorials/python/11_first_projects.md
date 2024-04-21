@@ -25,9 +25,7 @@ Make sure to read the documentation for a full overview of the capabilities of t
 ## Making a game
 
 You should have the tools to make a guessing game now.
-You may want to give it a go yourself first, and then compare it to the sample below:
-
-{{ codeblock(fn="guessing_game", lc="py") }}
+You may want to give it a go yourself first, and then check out [these examples.](@/tutorials/python/100_guessing_game.md)
 
 ## Command Line Arguments
 
