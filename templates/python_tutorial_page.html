@@ -5,7 +5,8 @@
 <a href="{{ get_url(path=page.extra['prev']) }}">&lt prev</a>
 |
 {% endif %}
-<a href="{{ get_url(path='@/tutorials/python/_index.md') }}">index</a>
+{% set last_ancestor = page.ancestors | last() %}
+<a href="{{ get_url(path='@/' ~ last_ancestor) }}">index</a>
 {% if page.extra is defined and page.extra is containing("next") %}
 |
 <a href="{{ get_url(path=page.extra['next']) }}">next &gt</a>
