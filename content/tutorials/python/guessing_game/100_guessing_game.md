@@ -1,7 +1,7 @@
 +++
-title="Guessing Game pt. 1"
+title="Part 1"
 [extra]
-next="@/tutorials/python/101_guessing_game.md"
+next="@/tutorials/python/guessing_game/101_guessing_game.md"
 +++
 
 # Variables, Conditionals, and Built-in Functions

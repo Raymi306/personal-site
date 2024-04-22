@@ -1,8 +1,8 @@
 +++
 title="Running Code"
 [extra]
-prev="@/tutorials/python/01_installation.md"
-next="@/tutorials/python/10_first_steps.md"
+prev="@/tutorials/python/introduction/01_installation.md"
+next="@/tutorials/python/introduction/10_first_steps.md"
 +++
 
 # How to Run Code

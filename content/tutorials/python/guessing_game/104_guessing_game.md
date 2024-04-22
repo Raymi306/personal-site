@@ -1,7 +1,7 @@
 +++
-title="Guessing Game pt. 5"
+title="Part 5"
 [extra]
-prev="@/tutorials/python/103_guessing_game.md"
+prev="@/tutorials/python/guessing_game/103_guessing_game.md"
 +++
 
 # High or low?

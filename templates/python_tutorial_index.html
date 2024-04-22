@@ -7,7 +7,26 @@
 {% endblock %}
 
 {% block body %}
-<a href="{{ get_url(path='') }}">Home</a>
+{% set up_path = section.components | slice(end=-1) | join(sep="/") %}
+{% if up_path != "tutorials" %}
+  <a href="{{ get_url(path='@/' ~ up_path ~ '/_index.md') }}">Up</a>
+{% else %}
+  <a href="{{ get_url(path='/') }}">Home</a>
+{% endif %}
+{% if section.subsections %}
+<ul>
+  {% set subsections = [] %}
+  {% for subsection_uri in section.subsections %}
+      {% set section_obj = get_section(path=subsection_uri) %}
+      {% set_global subsections = subsections | concat(with=section_obj) %}
+  {% endfor %}
+  {% for subsection in subsections %}
+  <li>
+      <a href="{{ subsection.path }}">{{ subsection.title }}</a>
+  </li>
+  {%- endfor %}
+</ul>
+{% endif %}
 <ul>
   {% for page in section.pages -%}
   <li>

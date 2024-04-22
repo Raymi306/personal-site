@@ -1,8 +1,8 @@
 +++
 title="First Steps"
 [extra]
-prev="@/tutorials/python/02_how_to_run_code.md"
-next="@/tutorials/python/11_first_projects.md"
+prev="@/tutorials/python/introduction/02_how_to_run_code.md"
+next="@/tutorials/python/introduction/11_first_projects.md"
 +++
 
 # Humble Beginnings
@@ -102,7 +102,7 @@ Note that there is a problem with this code.
 What happens if we don't type in a number?
 An error message pops up and ends the program!
 Error messages tend to contain useful information for improving our programs when things go wrong, and sometimes we don't want them to end our program.
-We will discuss error handling [later](@/tutorials/python/25_error_handling.md), an early example is also included below.
+We will discuss error handling [later](@/tutorials/python/digging_deeper/25_error_handling.md), an early example is also included below.
 
 {{ codeblock(fn="futures_try_int_input", lc="py") }}
 

@@ -1,8 +1,8 @@
 +++
-title="Guessing Game pt. 2"
+title="Part 2"
 [extra]
-prev="@/tutorials/python/100_guessing_game.md"
-next="@/tutorials/python/102_guessing_game.md"
+prev="@/tutorials/python/guessing_game/100_guessing_game.md"
+next="@/tutorials/python/guessing_game/102_guessing_game.md"
 +++
 
 # Randomness and the Standard Library

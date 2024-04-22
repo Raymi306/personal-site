@@ -1,6 +1,7 @@
 +++
-title="Python Tutorial"
+title="Guessing Game"
 template="python_tutorial_index.html"
 page_template="python_tutorial_page.html"
-sort_by="weight"
+sort_by="slug"
+weight=2
 +++

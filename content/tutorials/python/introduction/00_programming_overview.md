@@ -1,7 +1,7 @@
 +++
 title="Prelude"
 [extra]
-next="@/tutorials/python/01_installation.md"
+next="@/tutorials/python/introduction/01_installation.md"
 +++
 
 # Programming is Likely Simpler Than You Think

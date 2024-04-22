@@ -1,8 +1,8 @@
 +++
 title="Debugging"
 [extra]
-prev="@/tutorials/python/21_operators.md"
-next="@/tutorials/python/23_classes.md"
+prev="@/tutorials/python/digging_deeper/21_operators.md"
+next="@/tutorials/python/digging_deeper/23_classes.md"
 +++
 # Debugging
 Unfortunately, things don't always go to plan when you're coding.

@@ -1,8 +1,7 @@
 +++
 title="Variables"
 [extra]
-prev="@/tutorials/python/11_first_projects.md"
-next="@/tutorials/python/21_operators.md"
+next="@/tutorials/python/digging_deeper/21_operators.md"
 +++
 
 # Variables

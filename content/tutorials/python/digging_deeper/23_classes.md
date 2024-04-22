@@ -1,8 +1,8 @@
 +++
 title="Classes"
 [extra]
-prev="@/tutorials/python/22_debugger.md"
-next="@/tutorials/python/24_linter.md"
+prev="@/tutorials/python/digging_deeper/22_debugger.md"
+next="@/tutorials/python/digging_deeper/24_linter.md"
 +++
 
 # Classes

@@ -1,8 +1,7 @@
 +++
 title="First Projects"
 [extra]
-prev="@/tutorials/python/10_first_steps.md"
-next="@/tutorials/python/20_variables.md"
+prev="@/tutorials/python/introduction/10_first_steps.md"
 +++
 
 # Bringing it all together
@@ -25,7 +24,7 @@ Make sure to read the documentation for a full overview of the capabilities of t
 ## Making a game
 
 You should have the tools to make a guessing game now.
-You may want to give it a go yourself first, and then check out [these examples.](@/tutorials/python/100_guessing_game.md)
+You may want to give it a go yourself first, and then check out [these examples.](@/tutorials/python/guessing_game/100_guessing_game.md)
 
 ## Command Line Arguments
 

@@ -1,8 +1,8 @@
 +++
-title="Guessing Game pt. 4"
+title="Part 4"
 [extra]
-prev="@/tutorials/python/102_guessing_game.md"
-next="@/tutorials/python/104_guessing_game.md"
+prev="@/tutorials/python/guessing_game/102_guessing_game.md"
+next="@/tutorials/python/guessing_game/104_guessing_game.md"
 +++
 
 # Defensive Coding

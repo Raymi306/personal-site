@@ -1,8 +1,8 @@
 +++
-title="Guessing Game pt. 3"
+title="Part 3"
 [extra]
-prev="@/tutorials/python/101_guessing_game.md"
-next="@/tutorials/python/103_guessing_game.md"
+prev="@/tutorials/python/guessing_game/101_guessing_game.md"
+next="@/tutorials/python/guessing_game/103_guessing_game.md"
 +++
 
 # Loops!

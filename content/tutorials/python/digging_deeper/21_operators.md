@@ -1,8 +1,8 @@
 +++
 title="Operators"
 [extra]
-prev="@/tutorials/python/20_variables.md"
-next="@/tutorials/python/22_debugger.md"
+prev="@/tutorials/python/digging_deeper/20_variables.md"
+next="@/tutorials/python/digging_deeper/22_debugger.md"
 +++
 
 # Operators
