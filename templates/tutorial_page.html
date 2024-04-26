@@ -2,4 +2,14 @@
 
 {% block top %}
 <a href="{{ get_url(path='') }}">Home</a> | <a href="{{ get_url(path='@/tutorials/_index.md') }}">Tutorials</a>
+{% if page.date %}
+<br>
+<br>
+<i>{{ page.date }}</i>
+{% if page.updated %}
+<br>
+<i>Updated: {{ page.updated }}</i>
+{% endif %}
+<hr>
+{% endif %}
 {% endblock %}
