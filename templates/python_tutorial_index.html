@@ -20,10 +20,18 @@
       {% set section_obj = get_section(path=subsection_uri) %}
       {% set_global subsections = subsections | concat(with=section_obj) %}
   {% endfor %}
-  {% for subsection in subsections %}
+  {% for subsection_uri in section.subsections %}
+  {% set subsection = get_section(path=subsection_uri) %}
   <li>
       <a href="{{ subsection.path }}">{{ subsection.title }}</a>
   </li>
+  <ul>
+    {% for page in subsection.pages %}
+      <li>
+	      <a href="{{ page.path }}">{{ page.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
   {%- endfor %}
 </ul>
 {% endif %}
