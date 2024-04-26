@@ -1,11 +1,13 @@
 +++
 title="GRUB Recovery"
+date="2023-07-29"
+updated="2023-08-02"
 +++
 # How to Recover From a Bad GRUB Configuration
-This tutorial uses the following vdi disk: [download here](https://andrew.let-them.cyou/images/grub-broken.vdi).
+This tutorial uses the following vdi disk: [download here](/images/grub-broken.vdi).
 You may use free software such as VirtualBox or QEMU to load the disk and follow along.
 In VirtualBox, create a Linux 64 bit VM and select grub-broken.vdi as the virtual harddisk file.
-It does not need many resources to run, 1 core and 2GB of memory should be more than enough.
+It does not need many resources to run, 1 core and 1GB of memory should be more than enough.
 I would hazard a guess that you could run it with ~512MB of memory in a pinch.
 Once the VM is running, we find ourselves in the GRUB command line.
 The first thing we need to do is to explore the layout of our disks.

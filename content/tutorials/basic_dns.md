@@ -1,5 +1,6 @@
 +++
 title="Basic DNS"
+date="2021-10-09"
 +++
 
 # Basic DNS

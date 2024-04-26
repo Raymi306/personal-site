@@ -1,5 +1,6 @@
 +++
 title="Automatically Locking your Screen with Debian and the i3wm"
+date="2024-02-12"
 +++
 
 Looking up how to automatically lock your laptop screen when using the i3 window manager brought up a variety of methods.
