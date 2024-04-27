@@ -1,4 +1,4 @@
 /
     link: </index.css>; rel=preload; as=style
     link: </index.js>; rel=preload; as=script
-    link: </mazeletter-metropolis.woff2>; rel=preload; as=font; type='font/woff2'; crossorigin
+    link: </mazeletter-metropolis.woff2>; rel=preload; as=font; crossorigin
