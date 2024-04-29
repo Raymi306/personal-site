@@ -82,7 +82,7 @@ Feel free to play with this example.
 
 ```py
 for i in range(1, 11):
-    print(f"Hello #{i}!
+    print(f"Hello #{i}!")
 ```
 
 - Save the file, remembering the location that you save it in and the name you choose to give it. Avoid spaces in the file name.
