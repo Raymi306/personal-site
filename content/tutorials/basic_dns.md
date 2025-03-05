@@ -4,6 +4,7 @@ date="2021-10-09"
 +++
 
 # Basic DNS
+
 A quick explainer of DNS records as they pertain to hosting a basic page.
 
 ---
@@ -18,6 +19,7 @@ Changing where you manage the domain's records involves the first record type:
 
 ## NS
 ---
+
 NS records, or 'nameserver' records, indicate which server on the internet contains the authoritative records for the domain.
 The nameserver with the authoritative records, simply put, is able to create and edit said records.
 To allow oneself to edit the domain records on another site than the domain registrars, you must find out what the nameserver addresses are for that other site.

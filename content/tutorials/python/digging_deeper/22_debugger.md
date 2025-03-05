@@ -21,7 +21,7 @@ For a detailed help explaining all available commands at once and a summary of h
 There are several commands that can help orient you.
 "l" run by itself will list 11 lines of the source code around the current line.
 If you run "l" again, it will continue to print subsequent lines until the end of the file.
-You can also pass arguments to this command to print a certain range of lines (`l lineno1 lineno2`) or to always print around the current line (`l .`).
+You can also pass arguments to this command to print a certain range of lines (`l lineno1, lineno2`) or to always print around the current line (`l .`).
 Remember that you can type "help" and a command to get detailed information about how to use it!
 
 Sometimes, you want more context than just the surrounding 11 lines.
