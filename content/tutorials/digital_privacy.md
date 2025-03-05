@@ -3,6 +3,8 @@ title="Digital Privacy"
 date="2025-03-04"
 +++
 
+Non-exhaustive and a work-in-progress.
+
 Before we get started, consider the relative credibility of my website and perhaps read about this topic elsewhere.
 
 The Electronic Frontier Foundation has a Surveillance Self-Defense guide: [https://ssd.eff.org/](https://ssd.eff.org/)
