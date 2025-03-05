@@ -22,6 +22,8 @@ It does not matter if you are using a secure app to message someone, if the devi
 
 ## Threat Model
 ---
+Security is often in direct conflict with convenience.
+Establishing your threat model can help you to make decisions on how to balance the two.
 
 What are the consequences if your privacy is violated?
 - embarassment?
@@ -44,7 +46,7 @@ You may have excellent digital security, but if you can be coerced into divulgin
 
 [Obligatory xkcd](https://xkcd.com/538/)
 
-Phishing and violence can both be effective at bypassing your digital safeguards.
+Phishing and violence can both be effective ways for others to bypass your digital safeguards.
 
 ## OPSEC
 ---
@@ -56,7 +58,6 @@ Do not take steps to be anonymous, only to login to an old account or use a cred
 Defense in depth: do not just take one step to protect yourself, layer.
 
 ### Fingerprinting
----
 
 A change in behavior is suspicious.
 Instead of turning your phone off, consider leaving it at home.
@@ -88,7 +89,6 @@ If any part of the data changes, the resulting hash will be completely different
 [Obligatory xkcd](https://xkcd.com/936/)
 
 ### Password Management
----
 
 A dedicated password manager is a must for ALL passwords.
 Use [KeePass](https://keepass.info/download.html) or an equivalent tool.
@@ -117,7 +117,6 @@ If everyone follows this guide too exactly, then the overall effectiveness of th
 This password should be easier to remember than a purely random password, but write it down and store it in as safe a manner as practicable until you have properly memorized it.
 
 ### Password Perils
----
 
 Reusing a password regardless of strength is a surefire way to get your accounts compromised.
 
@@ -128,7 +127,6 @@ The issue is as follows:
 - Attackers try other services with your account information (perhaps email and password) and hope to get lucky.
 
 ### haveibeenpwned
----
 
 Make use of [https://haveibeenpwned.com/](https://haveibeenpwned.com/)
 
@@ -137,7 +135,6 @@ If you are trusting or can read the source code and verify, you can check your p
 You may also enter your email address to be informed of future breaches.
 
 ### Not-Passwords
----
 
 Be wary of biometric authentication measures, many fingerprint scanners have historically been trivial to fool.
 
@@ -167,7 +164,6 @@ Matrix may be of interest as an alternative.
 ---
 
 ### Browsers
----
 
 Most browsers are either based on Firefox or based on Chromium, unless you are unfortunate enough to be stuck with an Apple OS.
 Firefox and Chrome themselves are not particularly great choices for sensitive web browsing.
@@ -177,7 +173,6 @@ Be aware that sometimes, your attempts to avoid tracking just make you stand out
 If you use a browser which is built on top of Chromium or Firefox, critical security updates may be slightly delayed as they are applied to whichever alternate browser you have chosen.
 
 ### VPN
----
 
 If your threat model concerns stop at ISP snooping, a VPN is largely sufficient to protect you.
 
@@ -192,7 +187,6 @@ However, if you are the only one using it, any actions performed by your VPN can
 As of the writing of this article, a helpful method of navigating paid VPN options can be found at [windscribe.com](https://windscribe.com/vpnmap)
 
 ### Tor
----
 
 From the history of the Tor project:
 > The goal of onion routing was to have a way to use the internet with as much privacy
@@ -218,12 +212,11 @@ Otherwise, the unencrypted side is the obvious weak link.
 ---
 
 ### Every day
----
 
 Consider a solution such as [GrapheneOS](https://grapheneos.org/) on a used Pixel phone.
+Small things, like turning off Bluetooth and NFC when not in use can also be helpful.
 
 ### Burner
----
 
 Not so simple any more to have a burner phone if you want pay-by-use functionality.
 If you just need one for emergencies, you can buy any cheap phone with a monthly contractless plan.
@@ -260,7 +253,6 @@ For some specific recommendations, consider:
 ---
 
 ### One Time Pads
----
 
 [Unbreakable cryptography.](https://en.wikipedia.org/wiki/One-time_pad)
 Not very convenient to use correctly though.
