@@ -26,8 +26,8 @@ grep $command .bash_history
 ### The !! event designator
 
 Ran a command, but forgot to put `sudo` up front?
-In bash, you can use `sudo !!`.
-If your shell does not have similar tools to work with history, up arrow followed by the home key isn't much more strenous.
+In bash, you can use `sudo !!` to rerun the last command, but this time with sudo up front.
+If your shell does not have similar tools to work with history, up arrow followed by the home key isn't that much more strenous.
 
 [Bash manual entry on "Event Designators"](https://www.gnu.org/software/bash/manual/bash.html#Event-Designators)
 
