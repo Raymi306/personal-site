@@ -5,6 +5,10 @@ description="Information about the creation of this website"
 
 # About
 
+---
+
+## The Page
+
 {{ club512kb() }}
 
 This website is hosted with Cloudflare Pages.
