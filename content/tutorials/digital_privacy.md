@@ -236,6 +236,9 @@ Printers may also store print jobs.
 If the ethical concerns weren't enough for you, the fact that your queries and provided context are being stored may be.
 Running a private model should be a priority if you must use it in a sensitive manner.
 
+Devices with built-in AI that function by monitoring your device should be considered compromised.
+End-to-end encryption doesn't help if you have malware on your device or the recipient's device that can see everything anyway.
+
 ## Operating Systems
 ---
 
