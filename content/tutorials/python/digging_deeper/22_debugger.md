@@ -62,6 +62,8 @@ To continue until the return of a frame, run "r(eturn)".
 
 To traverse up and down stack frames, run "up" and "down" respectively
 
+To jump to an arbitrary line of code, run "j(ump") followed by the desired line number.
+
 To quit out of the debugger, run "quit".
 On Unix systems, you may also press <Ctrl+D\>
 
