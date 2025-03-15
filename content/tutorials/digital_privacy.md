@@ -94,13 +94,13 @@ A dedicated password manager is a must for ALL passwords.
 Use [KeePass](https://keepass.info/download.html) or an equivalent tool.
 KeePass can also manage many common forms of 2FA.
 
-For your master password, consider using a method similar to the default settings from [https://beta.xkpasswd.net/](https://beta.xkpasswd.net/)
+For your master password, consider using a method similar to the default settings from [https://www.xkpasswd.net/](https://www.xkpasswd.net/)
 
 For posterity and to fight bit rot:
 - Choose a random symbol, pad the front and back of the password with 2-3 of this symbol.
 - Choose 2, 2 digit numbers.  Pad the front with one and the back with another.
 - Choose another random symbol. Use this symbol in between each word.
-- Choose 4 random words.
+- Choose 3 - 4 random words.
 - Choose a capitalization scheme for the words, you could capitalize the first or last of each word, or alternate entire words in upper and lower case.
 
 Example:
