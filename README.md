@@ -4,7 +4,7 @@
 
 [code blocks for Python tutorial](https://github.com/Raymi306/python-tutorial-codeblocks)
 
-build with [zola](https://github.com/getzola/zola)
+For use with [zola](https://github.com/getzola/zola)
 
 ## Asset Info
 
