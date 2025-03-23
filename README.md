@@ -4,7 +4,7 @@
 
 [about](https://andrew.let-them.cyou/about/)
 
-https://github.com/Raymi306/python-tutorial-codeblocks
+[code blocks for Python tutorial](https://github.com/Raymi306/python-tutorial-codeblocks)
 
 ## Asset Info
 
