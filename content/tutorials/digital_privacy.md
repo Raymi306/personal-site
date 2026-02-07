@@ -5,17 +5,15 @@ updated="2026-02-07"
 +++
 
 # Digital Privacy
----
 
 ## Resources
----
 
 - [Electronic Frontier Foundation's Surveillance Self Defense Guides](https://ssd.eff.org/)
 - [Privacy Guides](https://www.privacyguides.org/)
   - particularly helpful if you are looking for specific tool guidance
 
 ## Threat Model
----
+
 Security is often in direct conflict with convenience.
 Establishing your threat model can help you to make decisions on how to balance the two, and should be the first step on your digital privacy journey.
 
@@ -44,7 +42,6 @@ Many privacy decisions that you make will center around trust.
 You may not trust your ISP with knowing your browsing habits, but do you trust the free VPN you saw an ad for with the same?
 
 ## Operational Security (OPSEC)
----
 
 There is more to digital privacy than choosing the "right" tools.
 Adopting a security focused mindset will help to keep you safe as landscapes change.
@@ -63,7 +60,6 @@ If you are using a secure tool such as Signal to communicate, but someone can se
 Embrace the principle of defense in depth: do not just take one step to protect yourself, layer.
 
 ## Software
----
 
 ### Updates
 
@@ -90,7 +86,6 @@ Of particular interest are settings pertaining to advertising, advertising or ot
 [EFF article on disabling ad ID tracking on phones](https://www.eff.org/deeplinks/2022/05/how-disable-ad-id-tracking-ios-and-android-and-why-you-should-do-it-now)
 
 ## Passwords
----
 
 ### Password Perils
 
@@ -102,7 +97,6 @@ Reusing a password regardless of strength is a very poor idea.
 4. Attackers try other services with your account information (perhaps email and password) and hope to get lucky.
 
 See: [Credential stuffing](https://en.wikipedia.org/wiki/Credential_stuffing)
-
 
 ### Password Management
 
@@ -170,7 +164,6 @@ In the realm of multifactor authentication, SMS is not a secure delivery method 
 Prefer time-based challenges which can be stored in your password manager or on a phone app when possible.
 
 ## Data at Rest
----
 
 Encrypt!
 Encrypted data cannot be read without knowledge of the key.
@@ -182,7 +175,6 @@ If using Unix, a variety of customizable options will be available to you if you
 These other options may or may not provide you with plausible deniability.
 
 ## Communication
----
 
 ### Text Messaging
 
@@ -210,7 +202,6 @@ Unbreakable cryptography for securing your messages that can be done with pen an
 Not very convenient to use correctly though.
 
 ## Web Browsing
----
 
 ### Browsers
 
@@ -251,7 +242,6 @@ Tor can not guarantee your anonymity, individual Tor users have been deanonymize
 Security tools such as VPNs and Tor can be layered together as well.
 
 ## Phones
----
 
 ### Every day
 
@@ -270,13 +260,11 @@ Your mode of transportation to point of sale is also relevant at this point.
 For pay-by-use, there are sketchy SIMs available online obstensibly intended for international travel.
 
 ## Printers
----
 
 [Anything you print can be traced to the printer that produced it.](https://en.wikipedia.org/wiki/Printer_tracking_dots)
 Printers may also store print jobs.
 
 ## Generative AI
----
 
 If the ethical concerns weren't enough for you, the fact that your queries and provided context are being stored may be.
 Running a private model should be a priority if you must use it in a sensitive manner.
@@ -287,7 +275,6 @@ Scams leveraging AI can be significantly harder to detect, as images and voices 
 Verify suspicious queries from friends and family with a different band of communication or in person.
 
 ## Operating Systems
----
 
 Windows and MacOS have all sorts of fun telemetry and other privacy concerns.
 Steps may be taken to modify these operating systems, although each update may require you to perform those steps again.
@@ -301,7 +288,6 @@ For operating systems with a specific privacy or security focus, consider:
 - [OpenBSD](https://www.openbsd.org/)
 
 ## WIPs, TODOs, and things without a proper category yet
----
 
 ### Fingerprinting and Metadata
 
